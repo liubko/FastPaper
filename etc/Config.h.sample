@@ -1,0 +1,4 @@
+#define POCKET_CONSUMER_KEY @""
+#define READABILITY_TOKEN @""
+#define PARSE_APP_ID @""
+#define PARSE_JS_KEY @""
