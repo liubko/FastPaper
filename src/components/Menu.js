@@ -95,7 +95,8 @@ var Menu = React.createClass({
     return (
       <View style={styles.menu}>
         <View style={[styles.row, styles.rowProfile]}>
-          <MyText style={[styles.rowProfileUsername]}>{this.state.username}</MyText>
+          <MyText numberOfLines={1}
+                  style={[styles.rowProfileUsername]}>{this.state.username}</MyText>
 
           <TouchableOpacity onPress={this._handleLogout}>
             <Icon name="ion|log-out"
@@ -160,12 +161,14 @@ var styles = StyleSheet.create({
   rowProfileUsername: {
     color: "#fff",
     fontSize: 22,
+    flex:1
   },
   rowProfileLogoutIcon: {
     marginRight: -10,
     width: 40,
     height: 60,
-    marginTop: 4
+    marginTop: 4,
+    alignSelf: "flex-end"
   },
 
   rowWPM: {

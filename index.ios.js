@@ -25,23 +25,23 @@ function suncQueue() {
 //   // console.log("[Dispatch]", type, JSON.stringify(payload));
 //   console.log("[Dispatch]", type, payload);
 // });
-window.flux = flux;
+// window.flux = flux;
 
-var { AsyncStorage } = require("react-native");
-window.AsyncStorage = AsyncStorage;
-window.getAllInAsyncStorage = () => {
-  AsyncStorage.getAllKeys()
-    .then(value => {
-      console.log("AsyncStorage.getAllKeys:",value);
-      return AsyncStorage.multiGet(value)
-    })
-    .then(value => {
-      console.log("AsyncStorage.multiGet:",value);
-    })
-    .catch(err => {
-      console.log("AsyncStorage.err:" ,err);
-    });
-}
+// var { AsyncStorage } = require("react-native");
+// window.AsyncStorage = AsyncStorage;
+// window.getAllInAsyncStorage = () => {
+//   AsyncStorage.getAllKeys()
+//     .then(value => {
+//       console.log("AsyncStorage.getAllKeys:",value);
+//       return AsyncStorage.multiGet(value)
+//     })
+//     .then(value => {
+//       console.log("AsyncStorage.multiGet:",value);
+//     })
+//     .catch(err => {
+//       console.log("AsyncStorage.err:" ,err);
+//     });
+// }
 /*-----  End of DEBUG  ------*/
 
 var FastPaper = React.createClass({

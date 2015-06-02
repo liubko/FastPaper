@@ -12,6 +12,7 @@ var RefreshableListView = require("react-native-refreshable-listview")
 
 var ReaderPage = require("./ReaderPage");
 var ArticleItem = require("../components/ArticleItem.js");
+var MyText = require("../components/MyText.js");
 var Header = require("../components/Header.js");
 var Loader = require("../components/Loader");
 var SettingsButton = require("../components/SettingsButton.js");
@@ -53,7 +54,14 @@ var ArticlesPage = React.createClass({
 
   componentDidMount() {
     this.getFlux().actions.articles
-      .fetch(true); // isInitial === true
+      .fetch(true)  // isInitial === true
+      .then(() => {
+        console.log("then:", this.refs);
+
+        if (this.refs && this.refs.loader) {
+          this.refs.loader.hide();
+        }
+      });
   },
 
   /*==========  handlers  ==========*/
@@ -89,6 +97,12 @@ var ArticlesPage = React.createClass({
                 rightButton={<SettingsButton onPress={this.props.toggleSidebar} />}/>
 
         <View style={styles.container}>
+          { this.state.articles.length <= 0
+            ? <View style={styles.noArticlesMsgView}>
+                <MyText style={styles.noArticlesMsgText}>Your list is empty</MyText>
+              </View>
+            : undefined }
+
           <RefreshableListView dataSource={this.state.articlesDS}
                                style={styles.listView}
                                loadData={this._handleRefresh}
@@ -102,13 +116,12 @@ var ArticlesPage = React.createClass({
                                                 onSelect={this._handleSelectArticle.bind(this, a)} />
                                 );
                                }} />
-
           { this.state.articles.length <= 0
-              ? <Loader isVisible={true}
+              ? <Loader ref="loader"
+                        isVisible={true}
                         overlayStyle={{backgroundColor: "transparent"}}
                         spinnerColor="#222" />
               : undefined }
-
         </View>
       </View>
     );
@@ -122,6 +135,16 @@ var styles = StyleSheet.create({
   },
   listView: {
   },
+  noArticlesMsgView: {
+    // backgroundColor: "#f8f8f8",
+    // flex: 1
+  },
+  noArticlesMsgText: {
+    color: "#222",
+    textAlign: "center",
+    fontSize: 18,
+    marginTop: 35
+  }
 });
 
 module.exports = ArticlesPage;
