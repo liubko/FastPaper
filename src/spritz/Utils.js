@@ -1,3 +1,5 @@
+// inspired by @olegcherr. https://github.com/olegcherr/Reedy-for-Chrome
+
 module.exports = {
   norm(num, min, max) {
     return num > max ? max : num < min ? min : num;

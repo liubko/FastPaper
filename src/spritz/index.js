@@ -1,3 +1,5 @@
+// inspired by @olegcherr. https://github.com/olegcherr/Reedy-for-Chrome
+
 var spritz = {};
 require("./Settings.js")(spritz);
 require("./Parser.js")(spritz);

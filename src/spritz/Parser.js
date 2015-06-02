@@ -1,3 +1,5 @@
+// inspired by @olegcherr. https://github.com/olegcherr/Reedy-for-Chrome
+
 var Utils = require('./Utils.js');
 
 module.exports = function (app) {

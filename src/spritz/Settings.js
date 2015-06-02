@@ -1,3 +1,5 @@
+// inspired by @olegcherr. https://github.com/olegcherr/Reedy-for-Chrome
+
 module.exports = function (app) {
   var settings = {
     wpm: 300,
