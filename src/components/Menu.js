@@ -81,7 +81,9 @@ var Menu = React.createClass({
           this.props.menuActions.close();
         }, 1);
       })
-      .done();
+      .done(undefined, err => {
+        console.log("[Error in Menu._handleLogout]:", err);
+      });
   },
 
   shouldComponentUpdate(nextProps, nextState) {

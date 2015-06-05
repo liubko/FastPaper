@@ -35,7 +35,7 @@ var App = React.createClass({
   componentDidMount() {
     this.getFlux().actions.user
       .restoreSession()
-      .finally(data => {
+      .then(data => {
         if (data.isLoggedIn) {
           this.refs.nav.resetTo({
             title: "Articles Page",
@@ -46,7 +46,9 @@ var App = React.createClass({
           });
         }
       })
-      .done();
+      .done(undefined, err => {
+        console.log("[Error in App.componentDidMount]:", err);
+      });
   },
 
   _handleGetNavigator() {

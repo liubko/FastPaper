@@ -9,7 +9,7 @@ class PocketAPI {
     var d = Q.defer();
 
     Pocket.fetch(since, function (error, res) {
-      // error - callback error from xcode
+      // error - error happend in xcode function
       // res.error - pocket api error
       if (error || res.error) {
         d.reject(error || res.error)

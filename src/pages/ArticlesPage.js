@@ -60,7 +60,9 @@ var ArticlesPage = React.createClass({
           this.refs.loader.hide();
         }
       })
-      .done();
+      .done(undefined, err => {
+        console.log("[Error in ArticlesPage.componentDidMount]:", err);
+      });
   },
 
   /*==========  handlers  ==========*/
@@ -84,7 +86,11 @@ var ArticlesPage = React.createClass({
   },
 
   _handleRefresh() {
-    this.getFlux().actions.articles.fetch();
+    this.getFlux().actions.articles
+      .fetch()
+      .done(undefined, err => {
+        console.log("[Error in ArticlesPage._handleRefresh]:", err);
+      });
   },
 
   /*==========  render  ==========*/

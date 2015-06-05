@@ -21,7 +21,7 @@ module.exports = {
         this.flux.actions.analytics.error({
           name: "Pocket-Articles",
           request: "Sync queue",
-          err: err
+          err: (err && err.response) ? err.response.text : err
         });
 
         return Q.reject(err);

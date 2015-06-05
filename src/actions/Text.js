@@ -10,16 +10,6 @@ var {
 
 module.exports = {
   fetchText(id) {
-    /*=================================
-    =            FOR DEBUG            =
-    =================================*/
-    // var {
-    //   TEXT
-    // } = require("../testData.js");
-    // this.dispatch(EC.SERVER.TEXT_RECEIVE, TEXT);
-    // return Q(TEXT);
-    /*-----  End of FOR DEBUG  ------*/
-
     var text = this.flux.stores.text.getTextById(id);
     if (text) {
       this.dispatch(EC.UI.SELECT_TEXT, text);
@@ -53,10 +43,18 @@ module.exports = {
         return text;
       })
       .catch(err => {
+        AlertIOS.alert(
+          "Error",
+          "Can't fetch article text. Please try again.",
+          [
+            {text: "OK", onPress: () => {}}
+          ]
+        );
+
         this.flux.actions.analytics.error({
           name: "Readability",
           request: "Fetch text",
-          err: err
+          err: (err && err.response) ? err.response.text : err
         });
 
         return Q.reject(err);

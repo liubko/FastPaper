@@ -40,15 +40,15 @@ var ArticleItem = React.createClass({
 
   _handleFavorite() {
     if (this.props.article.favorite === "1") {
-      this.getFlux().actions.articles.unfavorite(this.props.article.item_id)
+      this.getFlux().actions.articles.unfavorite(this.props.article.item_id);
     } else {
-      this.getFlux().actions.articles.favorite(this.props.article.item_id)
+      this.getFlux().actions.articles.favorite(this.props.article.item_id);
     }
   },
 
   _handleArchive() {
     this.swipeToInitialState();
-    this.getFlux().actions.articles.archive(this.props.article.item_id)
+    this.getFlux().actions.articles.archive(this.props.article.item_id);
   },
 
   _handleDelete() {
@@ -59,7 +59,7 @@ var ArticleItem = React.createClass({
         {text: 'Cancel'},
         {text: 'Delete', onPress: () => {
           this.swipeToInitialState();
-          this.getFlux().actions.articles.delete(this.props.article.item_id)
+          this.getFlux().actions.articles.delete(this.props.article.item_id);
         }},
       ]
     )

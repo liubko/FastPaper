@@ -37,6 +37,8 @@ var LoginPage = React.createClass({
             }
           });
         }
+      }, err => {
+        console.log("_handleLoginWithPocket:", err);
       });
   },
 

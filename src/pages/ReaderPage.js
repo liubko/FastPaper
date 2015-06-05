@@ -33,6 +33,7 @@ var ReaderPage = React.createClass({
 
   getStateFromFlux() {
     return {
+      isTextReady: this.getFlux().stores.text.getText().length > 0,
       isPlaying: this.getFlux().stores.text.isPlaying(),
       contextBefore: this.getFlux().stores.text.getContextBefore(),
       contextAfter: this.getFlux().stores.text.getContextAfter(),
@@ -74,11 +75,17 @@ var ReaderPage = React.createClass({
       .finally(() => {
         this.refs.loader.hide();
       })
-      .done();
+      .done(undefined, err => {
+        console.log("[Error in ReaderPage.componentDidMount]:", err);
+      });
   },
 
   /*==========  Subsection comment block  ==========*/
   _handlePlay() {
+    if (!this.state.isTextReady) {
+      return;
+    }
+
     this.getFlux().actions.text.play();
     StatusBarIOS.setHidden(true, StatusBarIOS.Animation.fade);
     this.refs.header.hide();
@@ -113,6 +120,7 @@ var ReaderPage = React.createClass({
   /*==========  render  ==========*/
   render() {
     var colors = this.state.colors;
+    // console.log("this.state.:", this.state, this.props);
 
     return (
       <View style={[ styles.rootView, {

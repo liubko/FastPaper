@@ -11,7 +11,7 @@ class ArticleAPI {
     var d = Q.defer();
 
     Pocket.getLoggedInUser(function (error, res) {
-      // error - callback error from xcode
+      // error - error happend in xcode function
       if (error) {
         d.reject(error || res.error)
       } else {

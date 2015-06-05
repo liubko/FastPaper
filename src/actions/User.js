@@ -4,16 +4,13 @@ var EC = require("../EventConstants");
 var api = require("../api/");
 var Q = require("q");
 
+var {
+  AlertIOS
+} = require("react-native");
+
 module.exports = {
   /*==========  User  ==========*/
   restoreSession() {
-    /*=================================
-    =            For Debug            =
-    =================================*/
-    // var data = {"username":"Test User","isLoggedIn":true};
-    // this.dispatch(EC.SERVER.LOGIN, data);
-    // return Q(data);
-    /*-----  End of For Debug  ------*/
     this.flux.actions.analytics.launchApp();
 
     return api.user
@@ -27,7 +24,7 @@ module.exports = {
         this.flux.actions.analytics.error({
           name: "Pocket-User",
           request: "Restore Session",
-          err: err
+          err: (err && err.response) ? err.response.text : err
         });
 
         return Q.reject(err);
@@ -44,10 +41,18 @@ module.exports = {
         return data;
       })
       .catch(err => {
+        AlertIOS.alert(
+          "Error",
+          "Can't login",
+          [
+            {text: "OK", onPress: () => {}}
+          ]
+        );
+
         this.flux.actions.analytics.error({
           name: "Pocket-User",
           request: "Login",
-          err: err
+          err: (err && err.response) ? err.response.text : err
         });
 
         return Q.reject(err);
@@ -68,7 +73,7 @@ module.exports = {
         this.flux.actions.analytics.error({
           name: "Pocket-User",
           request: "Logout",
-          err: err
+          err: (err && err.response) ? err.response.text : err
         });
 
         return Q.reject(err);

@@ -10,17 +10,6 @@ var {
 
 module.exports = {
   fetch(isInitial) {
-    /*=================================
-    =            FOR DEBUG            =
-    =================================*/
-    // var {
-    //   ARTICLES
-    // } = require("../testData.js");
-    // ARTICLES.since = new Date().getTime();
-    // this.dispatch(EC.SERVER.ARTICLES_RECEIVE, ARTICLES);
-    // return Q(ARTICLES);
-    /*-----  End of FOR DEBUG  ------*/
-
     if (!isInitial && !this.flux.stores.settings.isConnected()) {
       AlertIOS.alert(
         "Error",
@@ -47,7 +36,7 @@ module.exports = {
         this.flux.actions.analytics.error({
           name: "Pocket-Articles",
           request: "Fetch articles",
-          err: err
+          err: (err && err.response) ? err.response.text : err
         });
 
         return Q.reject(err);
@@ -65,10 +54,8 @@ module.exports = {
         this.flux.actions.analytics.error({
           name: "Pocket-Articles",
           request: "Archive article",
-          err: err
+          err: (err && err.response) ? err.response.text : err
         });
-
-        return Q.reject(err);
       })
       .done();
   },
@@ -84,10 +71,8 @@ module.exports = {
         this.flux.actions.analytics.error({
           name: "Pocket-Articles",
           request: "Delete article",
-          err: err
+          err: (err && err.response) ? err.response.text : err
         });
-
-        return Q.reject(err);
       })
       .done();
   },
@@ -104,10 +89,8 @@ module.exports = {
         this.flux.actions.analytics.error({
           name: "Pocket-Articles",
           request: "Favourite article",
-          err: err
+          err: (err && err.response) ? err.response.text : err
         });
-
-        return Q.reject(err);
       })
       .done();
   },
@@ -124,10 +107,8 @@ module.exports = {
         this.flux.actions.analytics.error({
           name: "Pocket-Articles",
           request: "Unfavourite article",
-          err: err
+          err: (err && err.response) ? err.response.text : err
         });
-
-        return Q.reject(err);
       })
       .done();
   },

@@ -151,6 +151,10 @@ var TextStore = Fluxxor.createStore({
   },
 
   handleSpritzPlay() {
+    if (!this._text || this._text.length <= 0) {
+      return;
+    }
+
     this._isPlaying = true;
     this._reader.currentSeq.play();
     this.emit("change");
