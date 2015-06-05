@@ -27,11 +27,21 @@ module.exports = {
     Parse.Analytics.track("Logout");
   },
 
-  fetchText({domain, author, word_count}) {
+  fetchText({ domain, author, word_count }) {
     Parse.Analytics.track("FetchArticle", {
       "Domain": domain || "unknown",
       "Author": author || "unknown",
-      "Word count": ""+word_count || "0"
+      "Word count": "" + word_count || "0"
+    });
+  },
+
+  error({ name, request, err }) {
+    name = name || "General";
+    err = err || {};
+
+    Parse.Analytics.track(`Error-${name}`, {
+      "request": request || "unknown",
+      "error": JSON.stringify(err)
     });
   }
 };

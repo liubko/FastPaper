@@ -44,7 +44,13 @@ module.exports = {
         return data;
       })
       .fail(err => {
-        console.log("Can't fetch articles:", err);
+        this.flux.actions.analytics.error({
+          name: "Pocket-Articles",
+          request: "Fetch articles",
+          err: err
+        });
+
+        return Q.reject(err);
       });
   },
 
@@ -54,6 +60,15 @@ module.exports = {
         id: id,
         action: "archive",
         event: EC.SERVER.ARCHIVE_ARTICLE
+      })
+      .fail(err => {
+        this.flux.actions.analytics.error({
+          name: "Pocket-Articles",
+          request: "Archive article",
+          err: err
+        });
+
+        return Q.reject(err);
       });
   },
 
@@ -63,6 +78,15 @@ module.exports = {
         id: id,
         action: "delete",
         event: EC.SERVER.DELETE_ARTICLE
+      })
+      .fail(err => {
+        this.flux.actions.analytics.error({
+          name: "Pocket-Articles",
+          request: "Delete article",
+          err: err
+        });
+
+        return Q.reject(err);
       });
   },
 
@@ -73,6 +97,15 @@ module.exports = {
       ._modify({
         id: id,
         action: "favorite",
+      })
+      .fail(err => {
+        this.flux.actions.analytics.error({
+          name: "Pocket-Articles",
+          request: "Favourite article",
+          err: err
+        });
+
+        return Q.reject(err);
       });
   },
 
@@ -83,6 +116,15 @@ module.exports = {
       ._modify({
         id: id,
         action: "unfavorite",
+      })
+      .fail(err => {
+        this.flux.actions.analytics.error({
+          name: "Pocket-Articles",
+          request: "Unfavourite article",
+          err: err
+        });
+
+        return Q.reject(err);
       });
   },
 

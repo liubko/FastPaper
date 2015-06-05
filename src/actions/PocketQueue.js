@@ -13,6 +13,15 @@ module.exports = {
         .modify(queue)
         .then(res => {
           this.dispatch(EC.SERVER.REMOVE_DELAYED_ACTION, res.action_results);
+        })
+        .fail(err => {
+          this.flux.actions.analytics.error({
+            name: "Pocket-Articles",
+            request: "Sync queue",
+            err: err
+          });
+
+          return Q.reject(err);
         });
     } else {
       return Q();

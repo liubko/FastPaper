@@ -22,6 +22,15 @@ module.exports = {
         this.dispatch(EC.SERVER.LOGIN, data);
 
         return data;
+      })
+      .fail(err => {
+        this.flux.actions.analytics.error({
+          name: "Pocket-User",
+          request: "Restore Session",
+          err: err
+        });
+
+        return Q.reject(err);
       });
   },
 
@@ -33,6 +42,15 @@ module.exports = {
 
         this.flux.actions.analytics.login();
         return data;
+      })
+      .fail(err => {
+        this.flux.actions.analytics.error({
+          name: "Pocket-User",
+          request: "Login",
+          err: err
+        });
+
+        return Q.reject(err);
       });
   },
 
@@ -45,6 +63,15 @@ module.exports = {
         this.dispatch(EC.SERVER.LOGOUT);
 
         return data;
+      })
+      .fail(err => {
+        this.flux.actions.analytics.error({
+          name: "Pocket-User",
+          request: "Logout",
+          err: err
+        });
+
+        return Q.reject(err);
       });
   }
 };

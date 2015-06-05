@@ -51,6 +51,15 @@ module.exports = {
 
         this.flux.actions.analytics.fetchText(data);
         return text;
+      })
+      .fail(err => {
+        this.flux.actions.analytics.error({
+          name: "Readability",
+          request: "Fetch text",
+          err: err
+        });
+
+        return Q.reject(err);
       });
   },
 
