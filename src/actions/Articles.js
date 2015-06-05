@@ -43,7 +43,7 @@ module.exports = {
         });
         return data;
       })
-      .fail(err => {
+      .catch(err => {
         this.flux.actions.analytics.error({
           name: "Pocket-Articles",
           request: "Fetch articles",
@@ -55,13 +55,13 @@ module.exports = {
   },
 
   archive(id) {
-    return this.flux.actions.articles
+    this.flux.actions.articles
       ._modify({
         id: id,
         action: "archive",
         event: EC.SERVER.ARCHIVE_ARTICLE
       })
-      .fail(err => {
+      .catch(err => {
         this.flux.actions.analytics.error({
           name: "Pocket-Articles",
           request: "Archive article",
@@ -69,17 +69,18 @@ module.exports = {
         });
 
         return Q.reject(err);
-      });
+      })
+      .done();
   },
 
   delete(id) {
-    return this.flux.actions.articles
+    this.flux.actions.articles
       ._modify({
         id: id,
         action: "delete",
         event: EC.SERVER.DELETE_ARTICLE
       })
-      .fail(err => {
+      .catch(err => {
         this.flux.actions.analytics.error({
           name: "Pocket-Articles",
           request: "Delete article",
@@ -87,18 +88,19 @@ module.exports = {
         });
 
         return Q.reject(err);
-      });
+      })
+      .done();
   },
 
   favorite(id) {
     this.dispatch(EC.SERVER.FAVORITE_ARTICLE, id);
 
-    return this.flux.actions.articles
+    this.flux.actions.articles
       ._modify({
         id: id,
         action: "favorite",
       })
-      .fail(err => {
+      .catch(err => {
         this.flux.actions.analytics.error({
           name: "Pocket-Articles",
           request: "Favourite article",
@@ -106,18 +108,19 @@ module.exports = {
         });
 
         return Q.reject(err);
-      });
+      })
+      .done();
   },
 
   unfavorite(id) {
     this.dispatch(EC.SERVER.UNFAVORITE_ARTICLE, id);
 
-    return this.flux.actions.articles
+    this.flux.actions.articles
       ._modify({
         id: id,
         action: "unfavorite",
       })
-      .fail(err => {
+      .catch(err => {
         this.flux.actions.analytics.error({
           name: "Pocket-Articles",
           request: "Unfavourite article",
@@ -125,7 +128,8 @@ module.exports = {
         });
 
         return Q.reject(err);
-      });
+      })
+      .done();
   },
 
   _modify({id, action, event}) {

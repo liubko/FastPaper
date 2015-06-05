@@ -23,7 +23,7 @@ module.exports = {
 
         return data;
       })
-      .fail(err => {
+      .catch(err => {
         this.flux.actions.analytics.error({
           name: "Pocket-User",
           request: "Restore Session",
@@ -43,7 +43,7 @@ module.exports = {
         this.flux.actions.analytics.login();
         return data;
       })
-      .fail(err => {
+      .catch(err => {
         this.flux.actions.analytics.error({
           name: "Pocket-User",
           request: "Login",
@@ -64,7 +64,7 @@ module.exports = {
 
         return data;
       })
-      .fail(err => {
+      .catch(err => {
         this.flux.actions.analytics.error({
           name: "Pocket-User",
           request: "Logout",

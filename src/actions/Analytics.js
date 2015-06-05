@@ -1,8 +1,5 @@
 "use strict";
 
-var EC = require("../EventConstants");
-var api = require("../api/");
-var Q = require("q");
 var Pocket = require("NativeModules").Pocket;
 
 var Parse = require("../ParseSDK.js").Parse;

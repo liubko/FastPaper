@@ -55,13 +55,12 @@ var ArticlesPage = React.createClass({
   componentDidMount() {
     this.getFlux().actions.articles
       .fetch(true)  // isInitial === true
-      .then(() => {
-        console.log("then:", this.refs);
-
+      .finally(() => {
         if (this.refs && this.refs.loader) {
           this.refs.loader.hide();
         }
-      });
+      })
+      .done();
   },
 
   /*==========  handlers  ==========*/

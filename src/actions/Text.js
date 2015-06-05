@@ -52,7 +52,7 @@ module.exports = {
         this.flux.actions.analytics.fetchText(data);
         return text;
       })
-      .fail(err => {
+      .catch(err => {
         this.flux.actions.analytics.error({
           name: "Readability",
           request: "Fetch text",

@@ -71,9 +71,10 @@ var ReaderPage = React.createClass({
 
     this.getFlux().actions.text
       .fetchText(this.props.article.item_id)
-      .then(() => {
+      .finally(() => {
         this.refs.loader.hide();
       })
+      .done();
   },
 
   /*==========  Subsection comment block  ==========*/

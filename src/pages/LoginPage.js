@@ -27,7 +27,7 @@ var LoginPage = React.createClass({
   _handleLoginWithPocket() {
     this.getFlux().actions.user
       .login()
-      .then(data => {
+      .done(data => {
         if (data.isLoggedIn) {
           this.props.navigator.resetTo({
             title: "Articles Page",

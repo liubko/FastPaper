@@ -67,7 +67,7 @@ var Menu = React.createClass({
   _handleLogout() {
     this.getFlux().actions.user
       .logout()
-      .then(() => {
+      .finally(() => {
         this.props.getNavigator()
           .resetTo({
             title: "Login Page",
@@ -80,7 +80,8 @@ var Menu = React.createClass({
         setTimeout(() => {
           this.props.menuActions.close();
         }, 1);
-      });
+      })
+      .done();
   },
 
   shouldComponentUpdate(nextProps, nextState) {
