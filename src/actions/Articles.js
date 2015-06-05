@@ -36,7 +36,7 @@ module.exports = {
         this.flux.actions.analytics.error({
           name: "Pocket-Articles",
           request: "Fetch articles",
-          err: (err && err.response) ? err.response.text : err
+          err: (err && err.response) ? JSON.parse(err.response.text || {}) : err
         });
 
         return Q.reject(err);
@@ -54,7 +54,7 @@ module.exports = {
         this.flux.actions.analytics.error({
           name: "Pocket-Articles",
           request: "Archive article",
-          err: (err && err.response) ? err.response.text : err
+          err: (err && err.response) ? JSON.parse(err.response.text || {}) : err
         });
       })
       .done();
@@ -71,7 +71,7 @@ module.exports = {
         this.flux.actions.analytics.error({
           name: "Pocket-Articles",
           request: "Delete article",
-          err: (err && err.response) ? err.response.text : err
+          err: (err && err.response) ? JSON.parse(err.response.text || {}) : err
         });
       })
       .done();
@@ -89,7 +89,7 @@ module.exports = {
         this.flux.actions.analytics.error({
           name: "Pocket-Articles",
           request: "Favourite article",
-          err: (err && err.response) ? err.response.text : err
+          err: (err && err.response) ? JSON.parse(err.response.text || {}) : err
         });
       })
       .done();
@@ -107,7 +107,7 @@ module.exports = {
         this.flux.actions.analytics.error({
           name: "Pocket-Articles",
           request: "Unfavourite article",
-          err: (err && err.response) ? err.response.text : err
+          err: (err && err.response) ? JSON.parse(err.response.text || {}) : err
         });
       })
       .done();

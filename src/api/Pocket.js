@@ -2,7 +2,9 @@
 
 var Q = require("q");
 var sa = require('superagent');
-var Pocket = require("NativeModules").Pocket;
+var {
+  Pocket
+} = require("NativeModules");
 
 class PocketAPI {
   fetch(since) {

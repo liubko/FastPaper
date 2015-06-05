@@ -1,27 +1,16 @@
 // CalendarManager.m
 
 #import "RCTPocket.h"
+#import "RCTBridge.h"
+
 #import "Config.h"
+
 #import "PocketAPI.h"
 #import "PocketAPITypes.h"
-#import "RCTBridge.h"
-#import "RCTEventDispatcher.h"
 
 @implementation RCTPocket
 
 RCT_EXPORT_MODULE();
-
-@synthesize bridge = _bridge;
-
-- (NSDictionary *)constantsToExport
-{
-  return @{
-    @"POCKET_CONSUMER_KEY": POCKET_CONSUMER_KEY,
-    @"READABILITY_TOKEN": READABILITY_TOKEN,
-    @"PARSE_APP_ID": PARSE_APP_ID,
-    @"PARSE_JS_KEY": PARSE_JS_KEY,
-  };
-}
 
 RCT_EXPORT_METHOD(getLoggedInUser:(RCTResponseSenderBlock)callback) {
   NSString *username = [[PocketAPI sharedAPI] username] ? [[PocketAPI sharedAPI] username] : @"";
@@ -42,7 +31,7 @@ RCT_EXPORT_METHOD(login:(RCTResponseSenderBlock)callback) {
       NSString *username = [API username] ? [API username] : @"";
       int isLoggedIn = [API isLoggedIn] ? [API isLoggedIn] : 0;
       NSLog(@"RCTPocket login.success %@, %d", username, isLoggedIn);
-      
+
       callback(@[[NSNull null], @{
         @"username": username,
         @"isLoggedIn": [NSString stringWithFormat:@"%d", isLoggedIn]

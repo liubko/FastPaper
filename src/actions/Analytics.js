@@ -1,44 +1,35 @@
 "use strict";
 
-var Pocket = require("NativeModules").Pocket;
+// Anonymous statistics
 
-var Parse = require("../ParseSDK.js").Parse;
-Parse.initialize(Pocket.PARSE_APP_ID, Pocket.PARSE_JS_KEY);
+var {
+  Flurry
+} = require("NativeModules");
 
 module.exports = {
-  pageView(pageName) {
-    Parse.Analytics.track("Page", {
-      "Page name": pageName,
-    });
-  },
-
   launchApp() {
-    Parse.Analytics.track("LaunchApp");
+    Flurry.logEvent("LaunchApp");
   },
 
   login() {
-    Parse.Analytics.track("Login");
+    Flurry.logEvent("Login");
   },
 
   logout() {
-    Parse.Analytics.track("Logout");
+    Flurry.logEvent("Logout");
   },
 
   fetchText({ domain, author, word_count }) {
-    Parse.Analytics.track("FetchArticle", {
+    Flurry.logEventWithParameters("Fetch Text", {
       "Domain": domain || "unknown",
       "Author": author || "unknown",
       "Word count": "" + word_count || "0"
     });
   },
 
-  error({ name, request, err }) {
-    name = name || "General";
+  error({ request, err }) {
     err = err || {};
 
-    Parse.Analytics.track(`Error-${name}`, {
-      "request": request || "unknown",
-      "error": JSON.stringify(err)
-    });
+    Flurry.logError(request, JSON.stringify(err));
   }
 };

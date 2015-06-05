@@ -9,7 +9,6 @@ var {
   TouchableOpacity,
 } = React;
 
-var Pocket = require("NativeModules").Pocket;
 var Fluxxor = require("fluxxor");
 
 var ArticlesPage = require("./ArticlesPage");

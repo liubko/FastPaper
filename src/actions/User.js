@@ -11,8 +11,6 @@ var {
 module.exports = {
   /*==========  User  ==========*/
   restoreSession() {
-    this.flux.actions.analytics.launchApp();
-
     return api.user
       .restoreSession()
       .then(data => {
@@ -24,7 +22,7 @@ module.exports = {
         this.flux.actions.analytics.error({
           name: "Pocket-User",
           request: "Restore Session",
-          err: (err && err.response) ? err.response.text : err
+          err: (err && err.response) ? JSON.parse(err.response.text || {}) : err
         });
 
         return Q.reject(err);
@@ -52,7 +50,7 @@ module.exports = {
         this.flux.actions.analytics.error({
           name: "Pocket-User",
           request: "Login",
-          err: (err && err.response) ? err.response.text : err
+          err: (err && err.response) ? JSON.parse(err.response.text || {}) : err
         });
 
         return Q.reject(err);
@@ -73,7 +71,7 @@ module.exports = {
         this.flux.actions.analytics.error({
           name: "Pocket-User",
           request: "Logout",
-          err: (err && err.response) ? err.response.text : err
+          err: (err && err.response) ? JSON.parse(err.response.text || {}) : err
         });
 
         return Q.reject(err);

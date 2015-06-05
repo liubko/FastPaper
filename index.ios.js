@@ -9,6 +9,8 @@ var stores = require("./src/stores/");
 var actions = require("./src/actions/");
 var flux = new Fluxxor.Flux(stores, actions);
 
+flux.actions.analytics.launchApp();
+
 flux.stores.settings.on("change", suncQueue);
 flux.stores.pocketQueue.on("change", suncQueue);
 

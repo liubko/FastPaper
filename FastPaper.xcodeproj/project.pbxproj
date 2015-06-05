@@ -21,6 +21,10 @@
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		146834051AC3E58100842450 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 146834041AC3E56700842450 /* libReact.a */; };
+		6622B94D1B21D68400B5AAEC /* libFlurry_6.5.0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6622B94C1B21D68400B5AAEC /* libFlurry_6.5.0.a */; };
+		6622B94F1B21D76C00B5AAEC /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6622B94E1B21D76C00B5AAEC /* SystemConfiguration.framework */; };
+		6622B9521B21D92200B5AAEC /* RCTFlurry.m in Sources */ = {isa = PBXBuildFile; fileRef = 6622B9511B21D92200B5AAEC /* RCTFlurry.m */; };
+		6622B9541B21E2CE00B5AAEC /* RCTConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 6622B9531B21E2CE00B5AAEC /* RCTConfig.m */; };
 		664DAEB91B1DEBF400701C6F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 664DAEB81B1DEBF400701C6F /* CoreGraphics.framework */; };
 		664DAEBB1B1DEBFA00701C6F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 664DAEBA1B1DEBFA00701C6F /* UIKit.framework */; };
 		664DAEBD1B1DEC0B00701C6F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 664DAEBC1B1DEC0B00701C6F /* Foundation.framework */; };
@@ -152,6 +156,14 @@
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = iOS/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = iOS/main.m; sourceTree = "<group>"; };
 		146833FF1AC3E56700842450 /* React.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = React.xcodeproj; path = "node_modules/react-native/React/React.xcodeproj"; sourceTree = "<group>"; };
+		6622B94A1B21D67000B5AAEC /* Flurry.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Flurry.h; path = Flurry/Flurry.h; sourceTree = "<group>"; };
+		6622B94B1B21D67000B5AAEC /* FlurryWatch.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = FlurryWatch.h; path = Flurry/FlurryWatch.h; sourceTree = "<group>"; };
+		6622B94C1B21D68400B5AAEC /* libFlurry_6.5.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libFlurry_6.5.0.a; path = Flurry/libFlurry_6.5.0.a; sourceTree = "<group>"; };
+		6622B94E1B21D76C00B5AAEC /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		6622B9501B21D91900B5AAEC /* RCTFlurry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RCTFlurry.h; path = iOS/RCTFlurry.h; sourceTree = "<group>"; };
+		6622B9511B21D92200B5AAEC /* RCTFlurry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RCTFlurry.m; path = iOS/RCTFlurry.m; sourceTree = "<group>"; };
+		6622B9531B21E2CE00B5AAEC /* RCTConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RCTConfig.m; path = iOS/RCTConfig.m; sourceTree = "<group>"; };
+		6622B9551B21E2D900B5AAEC /* RCTConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RCTConfig.h; path = iOS/RCTConfig.h; sourceTree = "<group>"; };
 		664DAEAC1B1DEB1200701C6F /* ReactNativeIcons.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ReactNativeIcons.xcodeproj; path = "node_modules/react-native-icons/ios/ReactNativeIcons.xcodeproj"; sourceTree = "<group>"; };
 		664DAEB21B1DEB7E00701C6F /* RCTAnimationExperimental.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTAnimationExperimental.xcodeproj; path = "node_modules/react-native/Libraries/Animation/RCTAnimationExperimental.xcodeproj"; sourceTree = "<group>"; };
 		664DAEB81B1DEBF400701C6F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -186,6 +198,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6622B94F1B21D76C00B5AAEC /* SystemConfiguration.framework in Frameworks */,
+				6622B94D1B21D68400B5AAEC /* libFlurry_6.5.0.a in Frameworks */,
 				664DAEF91B1DF31800701C6F /* libRCTAnimationExperimental.a in Frameworks */,
 				664DAEFA1B1DF31800701C6F /* libReactNativeIcons.a in Frameworks */,
 				664DAEBF1B1DEC1200701C6F /* Security.framework in Frameworks */,
@@ -277,7 +291,11 @@
 			isa = PBXGroup;
 			children = (
 				664DAEF61B1DF0DF00701C6F /* RCTPocket.h */,
+				6622B9551B21E2D900B5AAEC /* RCTConfig.h */,
+				6622B9501B21D91900B5AAEC /* RCTFlurry.h */,
 				664DAEF71B1DF0DF00701C6F /* RCTPocket.m */,
+				6622B9531B21E2CE00B5AAEC /* RCTConfig.m */,
+				6622B9511B21D92200B5AAEC /* RCTFlurry.m */,
 				664DAED11B1DEDF400701C6F /* Config.h */,
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
@@ -295,6 +313,15 @@
 				146834041AC3E56700842450 /* libReact.a */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		6622B93C1B21D65600B5AAEC /* Flurry */ = {
+			isa = PBXGroup;
+			children = (
+				6622B94A1B21D67000B5AAEC /* Flurry.h */,
+				6622B94B1B21D67000B5AAEC /* FlurryWatch.h */,
+			);
+			name = Flurry;
 			sourceTree = "<group>";
 		};
 		664DAEAD1B1DEB1200701C6F /* Products */ = {
@@ -354,6 +381,8 @@
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				6622B94C1B21D68400B5AAEC /* libFlurry_6.5.0.a */,
+				6622B94E1B21D76C00B5AAEC /* SystemConfiguration.framework */,
 				664DAEBE1B1DEC1200701C6F /* Security.framework */,
 				664DAEBC1B1DEC0B00701C6F /* Foundation.framework */,
 				664DAEBA1B1DEBFA00701C6F /* UIKit.framework */,
@@ -386,6 +415,7 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
+				6622B93C1B21D65600B5AAEC /* Flurry */,
 				13B07FAE1A68108700A75B9A /* FastPaper */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				664DAECC1B1DEC9800701C6F /* Fonts */,
@@ -625,8 +655,10 @@
 				664DAEDD1B1DEE3F00701C6F /* PocketAPIKeychainUtils.m in Sources */,
 				664DAEDE1B1DEE3F00701C6F /* PocketAPILogin.m in Sources */,
 				664DAEF81B1DF0DF00701C6F /* RCTPocket.m in Sources */,
+				6622B9521B21D92200B5AAEC /* RCTFlurry.m in Sources */,
 				13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */,
 				664DAEDC1B1DEE3F00701C6F /* PocketAPI.m in Sources */,
+				6622B9541B21E2CE00B5AAEC /* RCTConfig.m in Sources */,
 				664DAEDF1B1DEE3F00701C6F /* PocketAPIOperation.m in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
 			);
@@ -648,6 +680,10 @@
 				INFOPLIST_FILE = "$(SRCROOT)/iOS/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Flurry",
+				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = FastPaper;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -667,6 +703,10 @@
 				INFOPLIST_FILE = "$(SRCROOT)/iOS/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Flurry",
+				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = FastPaper;
 				TARGETED_DEVICE_FAMILY = 1;

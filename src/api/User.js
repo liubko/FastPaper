@@ -1,7 +1,9 @@
 "use strict";
 
 var Q = require("q");
-var Pocket = require("NativeModules").Pocket;
+var {
+  Pocket
+} = require("NativeModules");
 var {
   DeviceEventEmitter
 } = require('react-native');
