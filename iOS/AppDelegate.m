@@ -28,8 +28,17 @@
 
   // init Flurry
   [Flurry startSession:FLURRY_KEY];
+
+  /*         DEBUG         */
   [Flurry logEvent:@"OLOLO"];
-  
+
+  NSException *e = [NSException
+                    exceptionWithName:@"Test"
+                    reason:@"Test"
+                    userInfo:nil];
+  [Flurry logError:@"OLOLO_ERROR" message:@"OLOLO_MESSAGE" exception:e];
+  /*        END DEBUG       */
+
   NSURL *jsCodeLocation;
   /**
    * Loading JavaScript code - uncomment the one you want.
@@ -45,7 +54,7 @@
    * on the same Wi-Fi network.
    */
 
-  jsCodeLocation = [NSURL URLWithString:@"http://192.168.1.85:8081/index.ios.bundle"];
+  // jsCodeLocation = [NSURL URLWithString:@"http://172.27.40.49:8081/index.ios.bundle"];
 
   /**
    * OPTION 2
@@ -57,7 +66,7 @@
    * see http://facebook.github.io/react-native/docs/runningondevice.html
    */
 
-//   jsCodeLocation = [[NSBundle mainBundle] URLForResource:@"main" withExtension:@"jsbundle"];
+   jsCodeLocation = [[NSBundle mainBundle] URLForResource:@"main" withExtension:@"jsbundle"];
 
   RCTRootView *rootView = [[RCTRootView alloc] initWithBundleURL:jsCodeLocation
                                                       moduleName:@"FastPaper"
