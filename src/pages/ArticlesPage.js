@@ -104,7 +104,7 @@ var ArticlesPage = React.createClass({
         <View style={styles.container}>
           { this.state.articles.length <= 0
             ? <View style={styles.noArticlesMsgView}>
-                <MyText style={styles.noArticlesMsgText}>Your list is empty</MyText>
+                <MyText style={[styles.noArticlesMsgText]}>Your list is empty</MyText>
               </View>
             : undefined }
 
