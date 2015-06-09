@@ -164,6 +164,7 @@ var styles = StyleSheet.create({
   },
   title: {
     fontSize: 18,
+    paddingRight: 19,
   },
   host: {
     marginTop: 5,
