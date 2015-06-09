@@ -1,5 +1,4 @@
-/** @jsx React.DOM */
-'use strict';
+"use strict";
 
 var React = require("react-native");
 var {
@@ -10,9 +9,9 @@ var {
 } = React;
 
 var MyText = require("./MyText.js");
-var _ = require('lodash');
+var _ = require("lodash");
 var Fluxxor = require("fluxxor");
-var PubSub = require('pubsub-js');
+var PubSub = require("pubsub-js");
 window.PubSub = PubSub;
 
 var Spritz = React.createClass({

@@ -56,7 +56,7 @@
    * see http://facebook.github.io/react-native/docs/runningondevice.html
    */
 
-//   jsCodeLocation = [[NSBundle mainBundle] URLForResource:@"main" withExtension:@"jsbundle"];
+  // jsCodeLocation = [[NSBundle mainBundle] URLForResource:@"main" withExtension:@"jsbundle"];
 
   RCTRootView *rootView = [[RCTRootView alloc] initWithBundleURL:jsCodeLocation
                                                       moduleName:@"FastPaper"
@@ -74,7 +74,6 @@
   if([[PocketAPI sharedAPI] handleOpenURL:url]){
     return YES;
   }else{
-    NSLog(@"POCKET openURL 2");
     // if you handle your own URLs, do it here
     return NO;
   }

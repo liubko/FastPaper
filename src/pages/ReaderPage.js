@@ -88,7 +88,7 @@ var ReaderPage = React.createClass({
     }
 
     this.getFlux().actions.text.play();
-    StatusBarIOS.setHidden(true, StatusBarIOS.Animation.fade);
+    StatusBarIOS.setHidden(true, "fade");
     this.refs.header.hide();
 
     AnimationExperimental.startAnimation({
@@ -103,7 +103,7 @@ var ReaderPage = React.createClass({
   _handlePause() {
     this.getFlux().actions.text.pause();
     this.refs.header.show();
-    StatusBarIOS.setHidden(false, StatusBarIOS.Animation.fade);
+    StatusBarIOS.setHidden(false, "fade");
 
     AnimationExperimental.startAnimation({
       node: this.refs.playButton,

@@ -4,10 +4,13 @@ var React = require('react-native');
 var {
   NavigatorIOS,
   StyleSheet,
+  View,
+  Text,
+  StyleSheet,
   StatusBarIOS
 } = React;
 
-StatusBarIOS.setStyle(StatusBarIOS.Style.lightContent)
+StatusBarIOS.setStyle("light-content")
 
 var Fluxxor = require('fluxxor');
 var Sidebar = require('./sidebar/');

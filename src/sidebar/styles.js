@@ -17,6 +17,7 @@ module.exports = StyleSheet.create({
     right: 0,
     top: 0,
     height: 20,
+    backgroundColor: "transparent"
   },
   statusBarOverlay: {
     flex:1

@@ -5,37 +5,18 @@ var PubSub = require('pubsub-js');
 
 module.exports = (app) => {
 
-  app.Reader = (raw, debugName) => {
+  app.Reader = function(raw, debugName) {
+    console.log("Reader.constor");
 
     function onSettingsUpdate(e, key, value) {
-      // console.log("Reader.onSettingsUpdate");
+      console.log("Reader.onSettingsUpdate");
       if (key === 'entityAnalysis') {
         updateSequencer();
       }
     }
 
-    // function onSequencerUpdate() {
-    //   console.log("Reader.onSequencerUpdate", isConfigSent, currentSeq.index);
-    //   if (!isConfigSent && currentSeq.index === Math.round(currentSeq.length / 3 * 2)) {
-    //     isConfigSent = true;
-
-    //     app.event('Config', 'WPM', app.get('wpm'));
-
-    //     app.event('Config', 'Gradual acceleration', app.get('gradualAccel'));
-    //     app.event('Config', 'Smart slowing', app.get('smartSlowing'));
-
-    //     app.event('Config', 'Entity analysis', app.get('entityAnalysis'));
-    //     app.event('Config', 'Hyphenation', app.get('hyphenation'));
-    //     app.event('Config', 'Empty sentence end', app.get('emptySentenceEnd'));
-
-    //     app.event('Config', 'Progress bar', app.get('progressBar'));
-    //     app.event('Config', 'Time left', app.get('timeLeft'));
-    //     app.event('Config', 'Sequel', app.get('sequel'));
-    //   }
-    // }
-
     function updateSequencer() {
-      // console.log("Reader.updateSequencer");
+      console.log("Reader.updateSequencer");
       var tokenStartIndex = -1;
 
       currentSeq && currentSeq.pause();
