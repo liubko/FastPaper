@@ -207,7 +207,7 @@ var styles = StyleSheet.create({
 
     width: 40,
     height: 40,
-    borderRadius: 80,
+    borderRadius: 20,
     margin: 5,
     opacity: 0.8
   },
