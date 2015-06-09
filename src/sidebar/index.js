@@ -5,7 +5,6 @@ var deviceScreen = require('Dimensions').get('window');
 var styles = require('./styles');
 var queueAnimation = require('./animations');
 var deviceScreen = require('Dimensions').get('window');
-var AnimationExperimental = require('AnimationExperimental');
 
 var {
   PanResponder,
@@ -111,7 +110,7 @@ var SideMenu = React.createClass({
 
     var dif = Math.abs(openMenuOffset) - Math.abs(this.left);
     var percentage = 1 - Math.abs(dif) / Math.abs(openMenuOffset);
-    percentage /= 2;
+    percentage = Math.min(percentage, 0.75);
 
     this.statusBar.setNativeProps({
       backgroundColor: "rgba(0,0,0,"+ percentage+ ")"

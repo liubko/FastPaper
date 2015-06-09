@@ -97,16 +97,10 @@ var Menu = React.createClass({
 
     return (
       <View style={styles.menu}>
-        <View style={[styles.row, styles.rowProfile]}>
-          <MyText numberOfLines={1}
-                  style={[styles.rowProfileUsername]}>{this.state.username}</MyText>
-
-          <TouchableOpacity onPress={this._handleLogout}>
-            <Icon name="ion|log-out"
-                  size={24}
-                  color="#fff"
-                  style={styles.rowProfileLogoutIcon} />
-          </TouchableOpacity>
+        <View style={[styles.rowTitle]}>
+          <MyText style={[styles.rowTitleText]}>
+            Settings
+          </MyText>
         </View>
 
         <View style={[styles.row, styles.rowWPM]}>
@@ -136,6 +130,20 @@ var Menu = React.createClass({
             }) }
           </View>
         </View>
+
+        <View style={[styles.footer]}>
+          <View style={[styles.row, styles.rowProfile]}>
+            <MyText numberOfLines={1}
+                    style={[styles.rowProfileUsername]}>{this.state.username}</MyText>
+
+            <TouchableOpacity onPress={this._handleLogout}>
+              <Icon name="ion|log-out"
+                    size={24}
+                    color="#fff"
+                    style={styles.rowProfileLogoutIcon} />
+            </TouchableOpacity>
+          </View>
+        </View>
       </View>
     );
   }
@@ -155,23 +163,17 @@ var styles = StyleSheet.create({
     paddingLeft: 10,
     paddingRight: 10,
   },
-  rowProfile: {
-    height: 55,
-    justifyContent: "space-between",
-    alignItems: "center",
-    flexDirection: "row"
-  },
-  rowProfileUsername: {
-    color: "#fff",
-    fontSize: 22,
-    flex:1
-  },
-  rowProfileLogoutIcon: {
-    marginRight: -10,
-    width: 40,
+
+  rowTitle: {
     height: 60,
-    marginTop: 4,
-    alignSelf: "flex-end"
+    justifyContent: "center",
+    alignItems: "center",
+    // backgroundColor: "#009DDD",
+    marginBottom: 10
+  },
+  rowTitleText: {
+    color: "#fff",
+    fontSize: 20,
   },
 
   rowWPM: {
@@ -213,7 +215,33 @@ var styles = StyleSheet.create({
     shadowOffset: {width: 3, height: 4},
     shadowOpacity: 0.8,
     opacity: 1
-  }
+  },
+
+  footer: {
+    flex: 1,
+    flexDirection: "column",
+    justifyContent: "flex-end",
+    // alignItems: "center",
+  },
+  rowProfile: {
+    marginBottom: 0,
+    height: 55,
+    justifyContent: "space-between",
+    alignItems: "center",
+    flexDirection: "row"
+  },
+  rowProfileUsername: {
+    color: "#fff",
+    fontSize: 22,
+    flex:1
+  },
+  rowProfileLogoutIcon: {
+    marginRight: -10,
+    width: 40,
+    height: 60,
+    marginTop: 4,
+    alignSelf: "flex-end"
+  },
 });
 
 module.exports = Menu;

@@ -120,7 +120,6 @@ var ReaderPage = React.createClass({
   render() {
     var colors = this.state.colors;
     var context = this.state.context;
-    // console.log("this.state.:", this.state, this.props);
 
     return (
       <View style={[ styles.rootView, {
