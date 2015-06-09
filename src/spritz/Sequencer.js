@@ -182,9 +182,14 @@ module.exports = function (app) {
     self.getContext = function (charsLimit) {
       // console.log("Sequencer.getContext");
       var token = self.getToken();
+
+      var before = raw.substring(charsLimit ? Math.max(token.startIndex - charsLimit, 0) : 0, token.startIndex).trim();
+      var after = raw.substring(token.endIndex, charsLimit ? Math.min(token.endIndex + charsLimit, raw.length) : raw.length).trim();
+
+
       return {
-        before: raw.substring(charsLimit ? Math.max(token.startIndex - charsLimit, 0) : 0, token.startIndex).trim(),
-        after: raw.substring(token.endIndex, charsLimit ? Math.min(token.endIndex + charsLimit, raw.length) : raw.length).trim()
+        before: Utils.htmlEncode(before).replace(/\n/g, "<br/>"),
+        after: Utils.htmlEncode(after).replace(/\n/g, "<br/>"),
       };
     }
 

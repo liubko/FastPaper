@@ -16,7 +16,6 @@ module.exports = function (app) {
   app.View = function () {
     function onSequencerUpdate(str, hyphenated) {
       updateWord(str, hyphenated);
-      updateContext();
       updateProgressBar();
       updateTimeLeft();
     }
@@ -26,18 +25,7 @@ module.exports = function (app) {
     }
 
     function onSequencerPause() {
-      updateContext();
       updateWord(); // update is needed if paused on an "empty word" at the end of a sentence
-    }
-
-    function updateContext() {
-      if (sequencer && !sequencer.isRunning) {
-        var context = sequencer.getContext(CONTEXT_CHARS_LIMIT);
-        PubSub.publish("SPRITZ.VIEW.UpdateContext", {
-          contextBefore: Utils.htmlEncode(context.before).replace(/\n/g, "<br/>"),
-          contextAfter: Utils.htmlEncode(context.after).replace(/\n/g, "<br/>"),
-        });
-      }
     }
 
     function updateWord(str, hyphenated) {
@@ -99,7 +87,6 @@ module.exports = function (app) {
 
       updateTimeLeft();
       updateWord();
-      updateContext();
     }
 
     self.destroy = function (seq) {

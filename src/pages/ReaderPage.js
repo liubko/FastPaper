@@ -35,8 +35,7 @@ var ReaderPage = React.createClass({
     return {
       isTextReady: this.getFlux().stores.text.getText().length > 0,
       isPlaying: this.getFlux().stores.text.isPlaying(),
-      contextBefore: this.getFlux().stores.text.getContextBefore(),
-      contextAfter: this.getFlux().stores.text.getContextAfter(),
+      context: this.getFlux().stores.text.getContext(),
       colors: this.getFlux().stores.settings.getThemeColors()
     };
   },
@@ -120,6 +119,7 @@ var ReaderPage = React.createClass({
   /*==========  render  ==========*/
   render() {
     var colors = this.state.colors;
+    var context = this.state.context;
     // console.log("this.state.:", this.state, this.props);
 
     return (
@@ -142,7 +142,7 @@ var ReaderPage = React.createClass({
                                       styles.contextBeforeText, {
                                         color: colors.contextText
                                       }]}>
-                        {this.state.contextBefore}
+                        {context.before}
                       </MyText> }
             </View>
 
@@ -157,7 +157,7 @@ var ReaderPage = React.createClass({
                 &&  <MyText style={[ styles.contextViewTextShared, {
                                       color: colors.contextText
                                     }]}>
-                      {this.state.contextAfter}
+                      {context.after}
                     </MyText> }
             </View>
           </View>

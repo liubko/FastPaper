@@ -5,6 +5,7 @@ var _ = require("lodash");
 var EC = require("../EventConstants");
 var S = require("string");
 var PubSub = require("pubsub-js");
+var Utils = require("../Utils.js");
 
 var {
   AsyncStorage
@@ -17,8 +18,6 @@ var TextStore = Fluxxor.createStore({
     this._text = "";
     this._spritz = require("../spritz/");
     this._reader = undefined;
-    this._contextBefore = "";
-    this._contextAfter = "";
     this._word = [];
     this.debouncedToPrevSentence = undefined;
     this.debouncedToNextSentence = undefined;
@@ -52,7 +51,7 @@ var TextStore = Fluxxor.createStore({
       EC.SERVER.LOGIN, this.handleLogin,
       EC.SERVER.LOGOUT, this.handleLogout
     );
-    PubSub.subscribe("SPRITZ.VIEW.UpdateContext", this.handleUpdateContext);
+
     PubSub.subscribe("SPRITZ.VIEW.UpdateWord", this.handleUpdateWord);
   },
 
@@ -74,12 +73,19 @@ var TextStore = Fluxxor.createStore({
   //   return this._reader; // We return a link on purpose
   // },
 
-  getContextBefore() {
-    return JSON.parse(JSON.stringify(this._contextBefore));
-  },
+  getContext(){
+    if (!this._reader || !this._reader.currentSeq || this._reader.currentSeq.isRunning) {
+      return {
+        before: "",
+        after: "",
+      };
+    }
 
-  getContextAfter() {
-    return JSON.parse(JSON.stringify(this._contextAfter));
+    var {before, after} = this._reader.currentSeq.getContext();
+    return {
+      before: before,
+      after: after
+    };
   },
 
   getWord() {
@@ -186,12 +192,6 @@ var TextStore = Fluxxor.createStore({
   },
 
   /*==========  PubSub handlers  ==========*/
-  handleUpdateContext(e, msg) {
-    this._contextBefore = msg.contextBefore;
-    this._contextAfter = msg.contextAfter;
-    this.emit("change");
-  },
-
   handleUpdateWord(e, msg) {
     this._word = msg.word;
     this.emit("change");
