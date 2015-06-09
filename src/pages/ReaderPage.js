@@ -33,7 +33,7 @@ var ReaderPage = React.createClass({
 
   getStateFromFlux() {
     return {
-      isTextReady: this.getFlux().stores.text.getText().length > 0,
+      isTextReady: this.getFlux().stores.text.isReady(),
       isPlaying: this.getFlux().stores.text.isPlaying(),
       context: this.getFlux().stores.text.getContext(),
       colors: this.getFlux().stores.settings.getThemeColors()
@@ -68,15 +68,17 @@ var ReaderPage = React.createClass({
 
   componentDidMount() {
     this.refs.loader.show();
-
     this.getFlux().actions.text
       .fetchText(this.props.article.item_id)
-      .finally(() => {
-        this.refs.loader.hide();
-      })
       .done(undefined, err => {
         console.log("[Error in ReaderPage.componentDidMount]:", err);
       });
+  },
+
+  componentDidUpdate() {
+    if (this.state.isTextReady) {
+      this.refs.loader.hide();
+    }
   },
 
   /*==========  Subsection comment block  ==========*/
@@ -100,8 +102,8 @@ var ReaderPage = React.createClass({
 
   _handlePause() {
     this.getFlux().actions.text.pause();
-    StatusBarIOS.setHidden(false, StatusBarIOS.Animation.fade);
     this.refs.header.show();
+    StatusBarIOS.setHidden(false, StatusBarIOS.Animation.fade);
 
     AnimationExperimental.startAnimation({
       node: this.refs.playButton,

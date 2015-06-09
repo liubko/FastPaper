@@ -37,7 +37,7 @@ var LoginPage = React.createClass({
           });
         }
       }, err => {
-        console.log("_handleLoginWithPocket:", err);
+        console.log("[Error in LoginPage._handleLoginWithPocket]:", err);
       });
   },
 

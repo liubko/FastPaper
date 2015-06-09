@@ -34,7 +34,7 @@ var ArticleItem = React.createClass({
   },
 
   /*==========  handlers  ==========*/
-  handleSelectArticle() {
+  _handleSelectArticle() {
     this.props.onSelect()
   },
 
@@ -81,7 +81,8 @@ var ArticleItem = React.createClass({
               onTouchStart={this.props.onStartSwipe.bind(this, this.props.article.item_id)}
               loop={false}
               index={0}>
-        <TouchableWithoutFeedback onPress={this.handleSelectArticle}>
+        <TouchableOpacity activeOpacity={0.5}
+                          onPress={this._handleSelectArticle}>
           <View style={styles.swipeInfoPart}>
             <View style={styles.columnStar}>
               { article.favorite === "1"
@@ -108,7 +109,7 @@ var ArticleItem = React.createClass({
                   </View> )
               : undefined }
           </View>
-        </TouchableWithoutFeedback>
+        </TouchableOpacity>
 
         <View style={styles.swipeActionsPart}>
           <TouchableOpacity onPress={this._handleArchive}>

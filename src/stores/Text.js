@@ -14,6 +14,7 @@ var {
 var TextStore = Fluxxor.createStore({
   init() {
     this._isPlaying = false;
+    this._isReady = false;
     this._texts = {};
     this._text = "";
     this._spritz = require("../spritz/");
@@ -96,6 +97,10 @@ var TextStore = Fluxxor.createStore({
     return this._spritz.get("wpm");
   },
 
+  isReady() {
+    return this._isReady && this._text.length > 0;
+  },
+
   /*==========  handlers  ==========*/
   handleReceiveArticles() {
     // firs let artilces store to update
@@ -119,24 +124,30 @@ var TextStore = Fluxxor.createStore({
 
 
   handleSelectText(text) {
-    this._text = this._formatText(text);
-
-    if (this._reader) {
-      this._reader.destroy();
-      this._reader = undefined;
-    }
-
-    this._reader = new spritz.Reader(this._text, this._text.substring(0, 10));
-    this.debouncedToPrevSentence = _.throttle(this._reader.currentSeq.toPrevSentence, 100, {
-      'leading': false,
-      'trailing': false,
-    });
-    this.debouncedToNextSentence = _.throttle(this._reader.currentSeq.toNextSentence, 100, {
-      'leading': false,
-      'trailing': false,
-    });
-
+    this._isReady = false;
     this.emit("change");
+
+    setTimeout(() => {
+      this._isReady = true;
+      this._text = this._formatText(text);
+
+      if (this._reader) {
+        this._reader.destroy();
+        this._reader = undefined;
+      }
+
+      this._reader = new spritz.Reader(this._text, this._text.substring(0, 10));
+      this.debouncedToPrevSentence = _.throttle(this._reader.currentSeq.toPrevSentence, 100, {
+        'leading': false,
+        'trailing': false,
+      });
+      this.debouncedToNextSentence = _.throttle(this._reader.currentSeq.toNextSentence, 100, {
+        'leading': false,
+        'trailing': false,
+      });
+
+      this.emit("change");
+    }, 0);
   },
 
   handleReceiveText({id, text}) {

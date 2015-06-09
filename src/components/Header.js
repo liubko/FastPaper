@@ -47,7 +47,7 @@ var Header = React.createClass({
     AnimationExperimental.startAnimation({
       node: this.refs.root,
       duration: 200,
-      easing: 'easeInQuad',
+      easing: 'easeIn',
       property: 'opacity',
       toValue: 0,
     });
@@ -57,7 +57,7 @@ var Header = React.createClass({
     AnimationExperimental.startAnimation({
       node: this.refs.root,
       duration: 200,
-      easing: 'easeInQuad',
+      easing: 'easeIn',
       property: 'opacity',
       toValue: 1,
     });
