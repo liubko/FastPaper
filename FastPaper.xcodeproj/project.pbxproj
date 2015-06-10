@@ -21,9 +21,10 @@
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		146834051AC3E58100842450 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 146834041AC3E56700842450 /* libReact.a */; };
-		6622B94D1B21D68400B5AAEC /* libFlurry_6.5.0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6622B94C1B21D68400B5AAEC /* libFlurry_6.5.0.a */; };
+		6620022B1B28200800BB8ADC /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6620022A1B28200800BB8ADC /* libicucore.dylib */; };
+		6620023A1B28200E00BB8ADC /* libPods-Mixpanel.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 662002391B28200E00BB8ADC /* libPods-Mixpanel.a */; };
+		6620023D1B28239100BB8ADC /* RCTMixpanel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6620023C1B28239100BB8ADC /* RCTMixpanel.m */; };
 		6622B94F1B21D76C00B5AAEC /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6622B94E1B21D76C00B5AAEC /* SystemConfiguration.framework */; };
-		6622B9521B21D92200B5AAEC /* RCTFlurry.m in Sources */ = {isa = PBXBuildFile; fileRef = 6622B9511B21D92200B5AAEC /* RCTFlurry.m */; };
 		6622B9541B21E2CE00B5AAEC /* RCTConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 6622B9531B21E2CE00B5AAEC /* RCTConfig.m */; };
 		664DAEB91B1DEBF400701C6F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 664DAEB81B1DEBF400701C6F /* CoreGraphics.framework */; };
 		664DAEBB1B1DEBFA00701C6F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 664DAEBA1B1DEBFA00701C6F /* UIKit.framework */; };
@@ -43,6 +44,7 @@
 		664DAEF91B1DF31800701C6F /* libRCTAnimationExperimental.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 664DAEB71B1DEB7F00701C6F /* libRCTAnimationExperimental.a */; };
 		664DAEFA1B1DF31800701C6F /* libReactNativeIcons.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 664DAEB11B1DEB1200701C6F /* libReactNativeIcons.a */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
+		843F38A4F944312D99D75198 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 70F2EE5157B28836CF51CB2C /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -156,12 +158,12 @@
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = iOS/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = iOS/main.m; sourceTree = "<group>"; };
 		146833FF1AC3E56700842450 /* React.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = React.xcodeproj; path = "node_modules/react-native/React/React.xcodeproj"; sourceTree = "<group>"; };
-		6622B94A1B21D67000B5AAEC /* Flurry.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Flurry.h; path = Flurry/Flurry.h; sourceTree = "<group>"; };
-		6622B94B1B21D67000B5AAEC /* FlurryWatch.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = FlurryWatch.h; path = Flurry/FlurryWatch.h; sourceTree = "<group>"; };
+		6620022A1B28200800BB8ADC /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
+		662002391B28200E00BB8ADC /* libPods-Mixpanel.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-Mixpanel.a"; path = "Pods/../build/Debug-iphoneos/libPods-Mixpanel.a"; sourceTree = "<group>"; };
+		6620023B1B28239100BB8ADC /* RCTMixpanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RCTMixpanel.h; path = iOS/RCTMixpanel.h; sourceTree = "<group>"; };
+		6620023C1B28239100BB8ADC /* RCTMixpanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RCTMixpanel.m; path = iOS/RCTMixpanel.m; sourceTree = "<group>"; };
 		6622B94C1B21D68400B5AAEC /* libFlurry_6.5.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libFlurry_6.5.0.a; path = Flurry/libFlurry_6.5.0.a; sourceTree = "<group>"; };
 		6622B94E1B21D76C00B5AAEC /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
-		6622B9501B21D91900B5AAEC /* RCTFlurry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RCTFlurry.h; path = iOS/RCTFlurry.h; sourceTree = "<group>"; };
-		6622B9511B21D92200B5AAEC /* RCTFlurry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RCTFlurry.m; path = iOS/RCTFlurry.m; sourceTree = "<group>"; };
 		6622B9531B21E2CE00B5AAEC /* RCTConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RCTConfig.m; path = iOS/RCTConfig.m; sourceTree = "<group>"; };
 		6622B9551B21E2D900B5AAEC /* RCTConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RCTConfig.h; path = iOS/RCTConfig.h; sourceTree = "<group>"; };
 		664DAEAC1B1DEB1200701C6F /* ReactNativeIcons.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ReactNativeIcons.xcodeproj; path = "node_modules/react-native-icons/ios/ReactNativeIcons.xcodeproj"; sourceTree = "<group>"; };
@@ -189,8 +191,11 @@
 		664DAEE71B1DEE9100701C6F /* RobotoMono-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "RobotoMono-Regular.ttf"; path = "fonts/Roboto_Mono/RobotoMono-Regular.ttf"; sourceTree = "<group>"; };
 		664DAEF61B1DF0DF00701C6F /* RCTPocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RCTPocket.h; path = iOS/RCTPocket.h; sourceTree = "<group>"; };
 		664DAEF71B1DF0DF00701C6F /* RCTPocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RCTPocket.m; path = iOS/RCTPocket.m; sourceTree = "<group>"; };
+		70F2EE5157B28836CF51CB2C /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
+		D06646165EB5343385837F08 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		E040E930E6CD86FDE3FE0673 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -198,8 +203,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6620023A1B28200E00BB8ADC /* libPods-Mixpanel.a in Frameworks */,
+				6620022B1B28200800BB8ADC /* libicucore.dylib in Frameworks */,
 				6622B94F1B21D76C00B5AAEC /* SystemConfiguration.framework in Frameworks */,
-				6622B94D1B21D68400B5AAEC /* libFlurry_6.5.0.a in Frameworks */,
 				664DAEF91B1DF31800701C6F /* libRCTAnimationExperimental.a in Frameworks */,
 				664DAEFA1B1DF31800701C6F /* libReactNativeIcons.a in Frameworks */,
 				664DAEBF1B1DEC1200701C6F /* Security.framework in Frameworks */,
@@ -217,6 +223,7 @@
 				832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */,
 				00C302EA1ABCBA2D00DB3ED1 /* libRCTVibration.a in Frameworks */,
 				139FDEF61B0652A700C62182 /* libRCTWebSocket.a in Frameworks */,
+				843F38A4F944312D99D75198 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -290,12 +297,12 @@
 		13B07FAE1A68108700A75B9A /* FastPaper */ = {
 			isa = PBXGroup;
 			children = (
+				6620023B1B28239100BB8ADC /* RCTMixpanel.h */,
+				6620023C1B28239100BB8ADC /* RCTMixpanel.m */,
 				664DAEF61B1DF0DF00701C6F /* RCTPocket.h */,
 				6622B9551B21E2D900B5AAEC /* RCTConfig.h */,
-				6622B9501B21D91900B5AAEC /* RCTFlurry.h */,
 				664DAEF71B1DF0DF00701C6F /* RCTPocket.m */,
 				6622B9531B21E2CE00B5AAEC /* RCTConfig.m */,
-				6622B9511B21D92200B5AAEC /* RCTFlurry.m */,
 				664DAED11B1DEDF400701C6F /* Config.h */,
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
@@ -315,13 +322,14 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		6622B93C1B21D65600B5AAEC /* Flurry */ = {
+		4C47A1162EF3ACE1383C026A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				6622B94A1B21D67000B5AAEC /* Flurry.h */,
-				6622B94B1B21D67000B5AAEC /* FlurryWatch.h */,
+				662002391B28200E00BB8ADC /* libPods-Mixpanel.a */,
+				6620022A1B28200800BB8ADC /* libicucore.dylib */,
+				70F2EE5157B28836CF51CB2C /* libPods.a */,
 			);
-			name = Flurry;
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		664DAEAD1B1DEB1200701C6F /* Products */ = {
@@ -415,12 +423,13 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
-				6622B93C1B21D65600B5AAEC /* Flurry */,
 				13B07FAE1A68108700A75B9A /* FastPaper */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				664DAECC1B1DEC9800701C6F /* Fonts */,
 				664DAECD1B1DED2D00701C6F /* PocketSDK */,
 				83CBBA001A601CBA00E9B192 /* Products */,
+				A1DC27F7A82B2804FEEB421F /* Pods */,
+				4C47A1162EF3ACE1383C026A /* Frameworks */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -434,6 +443,15 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		A1DC27F7A82B2804FEEB421F /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				D06646165EB5343385837F08 /* Pods.debug.xcconfig */,
+				E040E930E6CD86FDE3FE0673 /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -441,9 +459,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "FastPaper" */;
 			buildPhases = (
+				14E5B289618A9FDC8858F535 /* Check Pods Manifest.lock */,
 				13B07F871A680F5B00A75B9A /* Sources */,
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
+				90F0026E10F26DB420322785 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -647,6 +667,39 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		14E5B289618A9FDC8858F535 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		90F0026E10F26DB420322785 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		13B07F871A680F5B00A75B9A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -654,8 +707,8 @@
 			files = (
 				664DAEDD1B1DEE3F00701C6F /* PocketAPIKeychainUtils.m in Sources */,
 				664DAEDE1B1DEE3F00701C6F /* PocketAPILogin.m in Sources */,
+				6620023D1B28239100BB8ADC /* RCTMixpanel.m in Sources */,
 				664DAEF81B1DF0DF00701C6F /* RCTPocket.m in Sources */,
-				6622B9521B21D92200B5AAEC /* RCTFlurry.m in Sources */,
 				13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */,
 				664DAEDC1B1DEE3F00701C6F /* PocketAPI.m in Sources */,
 				6622B9541B21E2CE00B5AAEC /* RCTConfig.m in Sources */,
@@ -669,6 +722,7 @@
 /* Begin XCBuildConfiguration section */
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D06646165EB5343385837F08 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -683,6 +737,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Flurry",
+					"$(PROJECT_DIR)/build/Debug-iphoneos",
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = FastPaper;
@@ -692,6 +747,7 @@
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E040E930E6CD86FDE3FE0673 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -706,6 +762,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Flurry",
+					"$(PROJECT_DIR)/build/Debug-iphoneos",
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = FastPaper;

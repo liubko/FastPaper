@@ -35,7 +35,6 @@ module.exports = {
       .then(data => {
         this.dispatch(EC.SERVER.LOGIN, data);
 
-        this.flux.actions.analytics.login();
         return data;
       })
       .catch(err => {
@@ -58,8 +57,6 @@ module.exports = {
   },
 
   logout() {
-    this.flux.actions.analytics.logout();
-
     return api.user
       .logout()
       .then(data => {

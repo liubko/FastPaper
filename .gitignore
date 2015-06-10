@@ -23,6 +23,10 @@ DerivedData
 *.xcuserstate
 project.xcworkspace
 
+# CocoaPod
+#
+Pods/
+
 # node.js
 #
 node_modules/

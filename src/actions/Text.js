@@ -31,7 +31,6 @@ module.exports = {
     var article = this.flux.stores.articles.getArticle(id);
     return api.readability.fetchText(article.resolved_url)
       .then(data => {
-
         var text = data.content;
         this.dispatch(EC.SERVER.TEXT_RECEIVE, {
           id: id,
@@ -39,7 +38,6 @@ module.exports = {
         });
         this.dispatch(EC.UI.SELECT_TEXT, text);
 
-        this.flux.actions.analytics.fetchText(data);
         return text;
       })
       .catch(err => {

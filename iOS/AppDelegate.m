@@ -15,19 +15,18 @@
 #import "../PocketSDK/PocketAPI.h"
 
 #import "RCTPocket.h"
-#import "Flurry.h"
+#import "Mixpanel.h"
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-
-  NSLog(@"START %@", POCKET_CONSUMER_KEY);
   // init Pocket
   [[PocketAPI sharedAPI] setConsumerKey:POCKET_CONSUMER_KEY];
 
-  // init Flurry
-  [Flurry startSession:FLURRY_KEY];
+  // Initialize the library with your
+  // Mixpanel project token, MIXPANEL_TOKEN
+  [Mixpanel sharedInstanceWithToken:MIXPANEL_TOKEN];
 
   NSURL *jsCodeLocation;
   /**

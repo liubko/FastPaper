@@ -1,35 +1,20 @@
 "use strict";
 
-// Anonymous statistics
+// Anonymous crash reports with Mixpanel
 
 var {
-  Flurry
+  Mixpanel
 } = require("NativeModules");
 
 module.exports = {
   launchApp() {
-    Flurry.logEvent("LaunchApp");
-  },
-
-  login() {
-    Flurry.logEvent("Login");
-  },
-
-  logout() {
-    Flurry.logEvent("Logout");
-  },
-
-  fetchText({ domain, author, word_count }) {
-    Flurry.logEventWithParameters("Fetch Text", {
-      "Domain": domain || "unknown",
-      "Author": author || "unknown",
-      "Word count": "" + word_count || "0"
-    });
+    Mixpanel.trackEvent("Launch Application");
   },
 
   error({ request, err }) {
+    request = request || "Unknown";
     err = err || {};
 
-    Flurry.logError(request, JSON.stringify(err));
+    Mixpanel.trackError(request, JSON.stringify(err));
   }
 };
