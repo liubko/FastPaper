@@ -61,6 +61,7 @@
 }
 - (void)webViewDidFinishLoad:(UIWebView *)webView
 {
+    [[self.view viewWithTag:1] setHidden:YES];
     [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
 }
 - (void)webViewDidStartLoad:(UIWebView *)webView

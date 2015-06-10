@@ -13,6 +13,7 @@
 RCT_EXPORT_MODULE();
 
 RCT_EXPORT_METHOD(getLoggedInUser:(RCTResponseSenderBlock)callback) {
+  NSLog(@"RCTPocket getLoggedInUser");
   NSString *username = [[PocketAPI sharedAPI] username] ? [[PocketAPI sharedAPI] username] : @"";
   int isLoggedIn = [[PocketAPI sharedAPI] isLoggedIn] ? [[PocketAPI sharedAPI] isLoggedIn] : 0;
 
@@ -23,6 +24,8 @@ RCT_EXPORT_METHOD(getLoggedInUser:(RCTResponseSenderBlock)callback) {
 }
 
 RCT_EXPORT_METHOD(login:(RCTResponseSenderBlock)callback) {
+  NSLog(@"RCTPocket login");
+
   [[PocketAPI sharedAPI] loginWithHandler: ^(PocketAPI *API, NSError *error){
     if (error != nil) {
       NSLog(@"RCTPocket login.error %@",[error localizedDescription]);
@@ -41,7 +44,7 @@ RCT_EXPORT_METHOD(login:(RCTResponseSenderBlock)callback) {
 }
 
 RCT_EXPORT_METHOD(logout) {
-  NSLog(@"RCTPocket logout1");
+  NSLog(@"RCTPocket logout");
   [[PocketAPI sharedAPI] logout];
 }
 

@@ -16,10 +16,18 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RRo-L5-MD2">
-                    <rect key="frame" x="0.0" y="0.0" width="320" height="61"/>
+                <webView contentMode="center" paginationMode="leftToRight" translatesAutoresizingMaskIntoConstraints="NO" id="Lq1-H9-cZ5">
+                    <rect key="frame" x="0.0" y="20" width="320" height="548"/>
+                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                </webView>
+                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XI6-iw-Bot">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="20"/>
+                    <color key="backgroundColor" red="0.25622624158859253" green="0.71495634317398071" blue="0.98555201292037964" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                </view>
+                <navigationBar tag="1" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RRo-L5-MD2">
+                    <rect key="frame" x="0.0" y="18" width="320" height="44"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="61" id="U26-G4-bXG"/>
+                        <constraint firstAttribute="height" constant="44" id="U26-G4-bXG"/>
                     </constraints>
                     <items>
                         <navigationItem id="rab-OU-fa5">
@@ -32,14 +40,6 @@
                         </navigationItem>
                     </items>
                 </navigationBar>
-                <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Lq1-H9-cZ5">
-                    <rect key="frame" x="0.0" y="61" width="320" height="507"/>
-                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                </webView>
-                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XI6-iw-Bot">
-                    <rect key="frame" x="0.0" y="0.0" width="320" height="17"/>
-                    <color key="backgroundColor" red="0.25622624158859253" green="0.71495634317398071" blue="0.98555201292037964" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                </view>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
@@ -48,9 +48,10 @@
                 <constraint firstAttribute="trailing" secondItem="RRo-L5-MD2" secondAttribute="trailing" id="fKD-v2-fJV"/>
                 <constraint firstAttribute="trailing" secondItem="Lq1-H9-cZ5" secondAttribute="trailing" id="ffM-AJ-4aB"/>
                 <constraint firstAttribute="bottom" secondItem="Lq1-H9-cZ5" secondAttribute="bottom" id="gqH-sT-PrN"/>
-                <constraint firstItem="RRo-L5-MD2" firstAttribute="top" secondItem="1" secondAttribute="top" id="nJ8-lo-C0t"/>
-                <constraint firstItem="Lq1-H9-cZ5" firstAttribute="top" secondItem="RRo-L5-MD2" secondAttribute="bottom" id="s5C-uN-Dor"/>
+                <constraint firstItem="RRo-L5-MD2" firstAttribute="top" secondItem="1" secondAttribute="top" constant="20" id="nJ8-lo-C0t"/>
+                <constraint firstItem="Lq1-H9-cZ5" firstAttribute="top" secondItem="RRo-L5-MD2" secondAttribute="top" id="s5C-uN-Dor"/>
             </constraints>
+            <point key="canvasLocation" x="255" y="168"/>
         </view>
     </objects>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
