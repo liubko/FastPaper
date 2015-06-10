@@ -13,6 +13,7 @@ var Fluxxor = require("fluxxor");
 
 var ArticlesPage = require("./ArticlesPage");
 var MyText = require("../components/MyText.js");
+var Loader = require("../components/Loader");
 
 var LoginPage = React.createClass({
   propTypes: {
@@ -24,9 +25,23 @@ var LoginPage = React.createClass({
   ],
 
   _handleLoginWithPocket() {
+    this.refs.loader.show();
+    /**
+
+      TODO:
+      - if user close pocket webview before it has been loaded
+      - need to fire event in order to hide spinner
+
+    **/
+    setTimeout(() => {
+      this.refs.loader.hide();
+    }, 1000);
+
+
     this.getFlux().actions.user
       .login()
       .done(data => {
+        this.refs.loader.hide();
         if (data.isLoggedIn) {
           this.props.navigator.resetTo({
             title: "Articles Page",
@@ -37,6 +52,7 @@ var LoginPage = React.createClass({
           });
         }
       }, err => {
+        this.refs.loader.hide();
         console.log("[Error in LoginPage._handleLoginWithPocket]:", err);
       });
   },
@@ -47,27 +63,39 @@ var LoginPage = React.createClass({
 
   render() {
     return (
-      <View style={styles.container}>
-        <View style={styles.logo}>
-          <Image style={styles.logoIcon}
-                 source={require('image!logo-white')} />
+      <View style={styles.root}>
+        <View style={styles.container}>
+          <View style={styles.logo}>
+            <Image style={styles.logoIcon}
+                   source={require('image!logo-white')} />
 
-          <MyText style={[styles.logoText]}>Fast Paper</MyText>
-        </View>
-        <TouchableOpacity onPress={this._handleLoginWithPocket}>
-          <View style={styles.loginButton}>
-            <Image style={styles.loginIcon}
-                   source={require('image!pocket')} />
-
-            <MyText style={[styles.loginText]}>Log in with Pocket</MyText>
+            <MyText style={[styles.logoText]}>Fast Paper</MyText>
           </View>
-        </TouchableOpacity>
+          <TouchableOpacity onPress={this._handleLoginWithPocket}>
+            <View style={styles.loginButton}>
+              <Image style={styles.loginIcon}
+                     source={require('image!pocket')} />
+
+              <MyText style={[styles.loginText]}>Log in with Pocket</MyText>
+            </View>
+          </TouchableOpacity>
+
+        </View>
+        <Loader ref="loader"
+                spinnerStyle={{
+                  marginBottom: 40
+                }}
+                overlayStyle={{
+                }} />
       </View>
     );
   }
 });
 
 var styles = StyleSheet.create({
+  root: {
+    flex: 1,
+  },
   container: {
     flex: 1,
     backgroundColor: "#009DDD",
