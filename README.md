@@ -6,7 +6,12 @@
 ```
 npm install
 ```
-2.Init config
+2.Install CocoaPods. (https://mixpanel.com/help/reference/ios)
+```
+gem install cocoapods
+pod install
+```
+3.Init config
 ```
 cp etc/Config.h.sample etc/Config.h
 vim etc/Config.h
