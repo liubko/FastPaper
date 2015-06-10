@@ -11,6 +11,8 @@ var {
   AsyncStorage
 } = require("react-native");
 
+var CONTEXT_LENGTH = 350;
+
 var TextStore = Fluxxor.createStore({
   init() {
     this._isPlaying = false;
@@ -84,8 +86,8 @@ var TextStore = Fluxxor.createStore({
 
     var {before, after} = this._reader.currentSeq.getContext();
     return {
-      before: before,
-      after: after
+      before: before.slice(-CONTEXT_LENGTH),
+      after: after.slice(0, CONTEXT_LENGTH)
     };
   },
 
