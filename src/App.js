@@ -10,7 +10,7 @@ var {
   StatusBarIOS
 } = React;
 
-StatusBarIOS.setStyle("light-content")
+StatusBarIOS.setStyle("light-content");
 
 var Fluxxor = require('fluxxor');
 var Sidebar = require('./sidebar/');

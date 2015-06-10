@@ -26,15 +26,18 @@
 		6620023D1B28239100BB8ADC /* RCTMixpanel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6620023C1B28239100BB8ADC /* RCTMixpanel.m */; };
 		6622B94F1B21D76C00B5AAEC /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6622B94E1B21D76C00B5AAEC /* SystemConfiguration.framework */; };
 		6622B9541B21E2CE00B5AAEC /* RCTConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 6622B9531B21E2CE00B5AAEC /* RCTConfig.m */; };
+		6637474B1B28436D003776BF /* PocketAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 6637473D1B28436D003776BF /* PocketAPI.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		6637474C1B28436D003776BF /* PocketAPIKeychainUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 663747401B28436D003776BF /* PocketAPIKeychainUtils.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		6637474D1B28436D003776BF /* PocketAPILogin.m in Sources */ = {isa = PBXBuildFile; fileRef = 663747421B28436D003776BF /* PocketAPILogin.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		6637474E1B28436D003776BF /* PocketAPIOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 663747441B28436D003776BF /* PocketAPIOperation.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		6637474F1B28436D003776BF /* PocketLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 663747471B28436D003776BF /* PocketLoginViewController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		663747501B28436D003776BF /* PocketLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 663747481B28436D003776BF /* PocketLoginViewController.xib */; };
+		663747511B28436D003776BF /* SFHFKeychainUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 6637474A1B28436D003776BF /* SFHFKeychainUtils.m */; };
 		664DAEB91B1DEBF400701C6F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 664DAEB81B1DEBF400701C6F /* CoreGraphics.framework */; };
 		664DAEBB1B1DEBFA00701C6F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 664DAEBA1B1DEBFA00701C6F /* UIKit.framework */; };
 		664DAEBD1B1DEC0B00701C6F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 664DAEBC1B1DEC0B00701C6F /* Foundation.framework */; };
 		664DAEBF1B1DEC1200701C6F /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 664DAEBE1B1DEC1200701C6F /* Security.framework */; };
 		664DAECB1B1DEC8700701C6F /* ionicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 664DAECA1B1DEC8700701C6F /* ionicons.ttf */; };
-		664DAEDC1B1DEE3F00701C6F /* PocketAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 664DAED31B1DEE3F00701C6F /* PocketAPI.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		664DAEDD1B1DEE3F00701C6F /* PocketAPIKeychainUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 664DAED61B1DEE3F00701C6F /* PocketAPIKeychainUtils.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		664DAEDE1B1DEE3F00701C6F /* PocketAPILogin.m in Sources */ = {isa = PBXBuildFile; fileRef = 664DAED81B1DEE3F00701C6F /* PocketAPILogin.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		664DAEDF1B1DEE3F00701C6F /* PocketAPIOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 664DAEDA1B1DEE3F00701C6F /* PocketAPIOperation.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		664DAEE31B1DEE8A00701C6F /* Roboto-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 664DAEE01B1DEE8A00701C6F /* Roboto-Light.ttf */; };
 		664DAEE41B1DEE8A00701C6F /* Roboto-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 664DAEE11B1DEE8A00701C6F /* Roboto-LightItalic.ttf */; };
 		664DAEE51B1DEE8A00701C6F /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 664DAEE21B1DEE8A00701C6F /* Roboto-Regular.ttf */; };
@@ -166,6 +169,21 @@
 		6622B94E1B21D76C00B5AAEC /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		6622B9531B21E2CE00B5AAEC /* RCTConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RCTConfig.m; path = iOS/RCTConfig.m; sourceTree = "<group>"; };
 		6622B9551B21E2D900B5AAEC /* RCTConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RCTConfig.h; path = iOS/RCTConfig.h; sourceTree = "<group>"; };
+		6637473C1B28436D003776BF /* PocketAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PocketAPI.h; path = PocketSDK/PocketAPI.h; sourceTree = "<group>"; };
+		6637473D1B28436D003776BF /* PocketAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PocketAPI.m; path = PocketSDK/PocketAPI.m; sourceTree = "<group>"; };
+		6637473E1B28436D003776BF /* PocketAPI+NSOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "PocketAPI+NSOperation.h"; path = "PocketSDK/PocketAPI+NSOperation.h"; sourceTree = "<group>"; };
+		6637473F1B28436D003776BF /* PocketAPIKeychainUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PocketAPIKeychainUtils.h; path = PocketSDK/PocketAPIKeychainUtils.h; sourceTree = "<group>"; };
+		663747401B28436D003776BF /* PocketAPIKeychainUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PocketAPIKeychainUtils.m; path = PocketSDK/PocketAPIKeychainUtils.m; sourceTree = "<group>"; };
+		663747411B28436D003776BF /* PocketAPILogin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PocketAPILogin.h; path = PocketSDK/PocketAPILogin.h; sourceTree = "<group>"; };
+		663747421B28436D003776BF /* PocketAPILogin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PocketAPILogin.m; path = PocketSDK/PocketAPILogin.m; sourceTree = "<group>"; };
+		663747431B28436D003776BF /* PocketAPIOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PocketAPIOperation.h; path = PocketSDK/PocketAPIOperation.h; sourceTree = "<group>"; };
+		663747441B28436D003776BF /* PocketAPIOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PocketAPIOperation.m; path = PocketSDK/PocketAPIOperation.m; sourceTree = "<group>"; };
+		663747451B28436D003776BF /* PocketAPITypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PocketAPITypes.h; path = PocketSDK/PocketAPITypes.h; sourceTree = "<group>"; };
+		663747461B28436D003776BF /* PocketLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PocketLoginViewController.h; path = PocketSDK/PocketLoginViewController.h; sourceTree = "<group>"; };
+		663747471B28436D003776BF /* PocketLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PocketLoginViewController.m; path = PocketSDK/PocketLoginViewController.m; sourceTree = "<group>"; };
+		663747481B28436D003776BF /* PocketLoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PocketLoginViewController.xib; path = PocketSDK/PocketLoginViewController.xib; sourceTree = "<group>"; };
+		663747491B28436D003776BF /* SFHFKeychainUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SFHFKeychainUtils.h; path = PocketSDK/SFHFKeychainUtils.h; sourceTree = "<group>"; };
+		6637474A1B28436D003776BF /* SFHFKeychainUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SFHFKeychainUtils.m; path = PocketSDK/SFHFKeychainUtils.m; sourceTree = "<group>"; };
 		664DAEAC1B1DEB1200701C6F /* ReactNativeIcons.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ReactNativeIcons.xcodeproj; path = "node_modules/react-native-icons/ios/ReactNativeIcons.xcodeproj"; sourceTree = "<group>"; };
 		664DAEB21B1DEB7E00701C6F /* RCTAnimationExperimental.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTAnimationExperimental.xcodeproj; path = "node_modules/react-native/Libraries/Animation/RCTAnimationExperimental.xcodeproj"; sourceTree = "<group>"; };
 		664DAEB81B1DEBF400701C6F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -174,16 +192,6 @@
 		664DAEBE1B1DEC1200701C6F /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		664DAECA1B1DEC8700701C6F /* ionicons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = ionicons.ttf; path = "node_modules/react-native-icons/ios/ReactNativeIcons/Libraries/FontAwesomeKit/ionicons.ttf"; sourceTree = "<group>"; };
 		664DAED11B1DEDF400701C6F /* Config.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Config.h; path = etc/Config.h; sourceTree = "<group>"; };
-		664DAED21B1DEE3F00701C6F /* PocketAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PocketAPI.h; path = PocketSDK/PocketAPI.h; sourceTree = "<group>"; };
-		664DAED31B1DEE3F00701C6F /* PocketAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PocketAPI.m; path = PocketSDK/PocketAPI.m; sourceTree = "<group>"; };
-		664DAED41B1DEE3F00701C6F /* PocketAPI+NSOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "PocketAPI+NSOperation.h"; path = "PocketSDK/PocketAPI+NSOperation.h"; sourceTree = "<group>"; };
-		664DAED51B1DEE3F00701C6F /* PocketAPIKeychainUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PocketAPIKeychainUtils.h; path = PocketSDK/PocketAPIKeychainUtils.h; sourceTree = "<group>"; };
-		664DAED61B1DEE3F00701C6F /* PocketAPIKeychainUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PocketAPIKeychainUtils.m; path = PocketSDK/PocketAPIKeychainUtils.m; sourceTree = "<group>"; };
-		664DAED71B1DEE3F00701C6F /* PocketAPILogin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PocketAPILogin.h; path = PocketSDK/PocketAPILogin.h; sourceTree = "<group>"; };
-		664DAED81B1DEE3F00701C6F /* PocketAPILogin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PocketAPILogin.m; path = PocketSDK/PocketAPILogin.m; sourceTree = "<group>"; };
-		664DAED91B1DEE3F00701C6F /* PocketAPIOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PocketAPIOperation.h; path = PocketSDK/PocketAPIOperation.h; sourceTree = "<group>"; };
-		664DAEDA1B1DEE3F00701C6F /* PocketAPIOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PocketAPIOperation.m; path = PocketSDK/PocketAPIOperation.m; sourceTree = "<group>"; };
-		664DAEDB1B1DEE3F00701C6F /* PocketAPITypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PocketAPITypes.h; path = PocketSDK/PocketAPITypes.h; sourceTree = "<group>"; };
 		664DAEE01B1DEE8A00701C6F /* Roboto-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Roboto-Light.ttf"; path = "fonts/Roboto/Roboto-Light.ttf"; sourceTree = "<group>"; };
 		664DAEE11B1DEE8A00701C6F /* Roboto-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Roboto-LightItalic.ttf"; path = "fonts/Roboto/Roboto-LightItalic.ttf"; sourceTree = "<group>"; };
 		664DAEE21B1DEE8A00701C6F /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Roboto-Regular.ttf"; path = "fonts/Roboto/Roboto-Regular.ttf"; sourceTree = "<group>"; };
@@ -364,16 +372,21 @@
 		664DAECD1B1DED2D00701C6F /* PocketSDK */ = {
 			isa = PBXGroup;
 			children = (
-				664DAED21B1DEE3F00701C6F /* PocketAPI.h */,
-				664DAED31B1DEE3F00701C6F /* PocketAPI.m */,
-				664DAED41B1DEE3F00701C6F /* PocketAPI+NSOperation.h */,
-				664DAED51B1DEE3F00701C6F /* PocketAPIKeychainUtils.h */,
-				664DAED61B1DEE3F00701C6F /* PocketAPIKeychainUtils.m */,
-				664DAED71B1DEE3F00701C6F /* PocketAPILogin.h */,
-				664DAED81B1DEE3F00701C6F /* PocketAPILogin.m */,
-				664DAED91B1DEE3F00701C6F /* PocketAPIOperation.h */,
-				664DAEDA1B1DEE3F00701C6F /* PocketAPIOperation.m */,
-				664DAEDB1B1DEE3F00701C6F /* PocketAPITypes.h */,
+				6637473C1B28436D003776BF /* PocketAPI.h */,
+				6637473D1B28436D003776BF /* PocketAPI.m */,
+				6637473E1B28436D003776BF /* PocketAPI+NSOperation.h */,
+				6637473F1B28436D003776BF /* PocketAPIKeychainUtils.h */,
+				663747401B28436D003776BF /* PocketAPIKeychainUtils.m */,
+				663747411B28436D003776BF /* PocketAPILogin.h */,
+				663747421B28436D003776BF /* PocketAPILogin.m */,
+				663747431B28436D003776BF /* PocketAPIOperation.h */,
+				663747441B28436D003776BF /* PocketAPIOperation.m */,
+				663747451B28436D003776BF /* PocketAPITypes.h */,
+				663747461B28436D003776BF /* PocketLoginViewController.h */,
+				663747471B28436D003776BF /* PocketLoginViewController.m */,
+				663747481B28436D003776BF /* PocketLoginViewController.xib */,
+				663747491B28436D003776BF /* SFHFKeychainUtils.h */,
+				6637474A1B28436D003776BF /* SFHFKeychainUtils.m */,
 			);
 			name = PocketSDK;
 			sourceTree = "<group>";
@@ -658,6 +671,7 @@
 				664DAEE91B1DEE9100701C6F /* RobotoMono-Regular.ttf in Resources */,
 				008F07F31AC5B25A0029DE68 /* main.jsbundle in Resources */,
 				664DAEE51B1DEE8A00701C6F /* Roboto-Regular.ttf in Resources */,
+				663747501B28436D003776BF /* PocketLoginViewController.xib in Resources */,
 				664DAEE41B1DEE8A00701C6F /* Roboto-LightItalic.ttf in Resources */,
 				664DAEE31B1DEE8A00701C6F /* Roboto-Light.ttf in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
@@ -705,14 +719,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				664DAEDD1B1DEE3F00701C6F /* PocketAPIKeychainUtils.m in Sources */,
-				664DAEDE1B1DEE3F00701C6F /* PocketAPILogin.m in Sources */,
+				6637474C1B28436D003776BF /* PocketAPIKeychainUtils.m in Sources */,
+				6637474B1B28436D003776BF /* PocketAPI.m in Sources */,
 				6620023D1B28239100BB8ADC /* RCTMixpanel.m in Sources */,
 				664DAEF81B1DF0DF00701C6F /* RCTPocket.m in Sources */,
 				13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */,
-				664DAEDC1B1DEE3F00701C6F /* PocketAPI.m in Sources */,
+				663747511B28436D003776BF /* SFHFKeychainUtils.m in Sources */,
+				6637474D1B28436D003776BF /* PocketAPILogin.m in Sources */,
 				6622B9541B21E2CE00B5AAEC /* RCTConfig.m in Sources */,
-				664DAEDF1B1DEE3F00701C6F /* PocketAPIOperation.m in Sources */,
+				6637474E1B28436D003776BF /* PocketAPIOperation.m in Sources */,
+				6637474F1B28436D003776BF /* PocketLoginViewController.m in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

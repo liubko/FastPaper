@@ -11,19 +11,19 @@
 
 @interface PocketAPILogin : NSObject <NSCoding, PocketAPIDelegate> {
 	PocketAPI *API;
-
+	
 	NSString *uuid; // unique ID for the login process
-
+	
 	NSString *requestToken;
 	NSString *accessToken;
-
+	
 	NSOperationQueue *operationQueue;
-
+	
 	id<PocketAPIDelegate> delegate;
-
+	
 	BOOL didStart;
 	BOOL didFinish;
-
+	
 	BOOL reverseAuth;
 }
 

@@ -4,19 +4,19 @@
 //
 //  Created by Steve Streza on 5/29/12.
 //  Copyright (c) 2012 Read It Later, Inc.
-//
+//  
 //  Permission is hereby granted, free of charge, to any person obtaining a copy of this
 //  software and associated documentation files (the "Software"), to deal in the Software
-//  without restriction, including without limitation the rights to use, copy, modify,
-//  merge, publish, distribute, sublicense, and/or sell copies of the Software, and to
+//  without restriction, including without limitation the rights to use, copy, modify, 
+//  merge, publish, distribute, sublicense, and/or sell copies of the Software, and to 
 //  permit persons to whom the Software is furnished to do so, subject to the following conditions:
-//
+//  
 //  The above copyright notice and this permission notice shall be included in all copies or
 //  substantial portions of the Software.
-//
-//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING
-//  BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
-//  NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+//  
+//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING 
+//  BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND 
+//  NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, 
 //  DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 //
@@ -74,7 +74,7 @@ NSString *PocketAPINameForHTTPMethod(PocketAPIHTTPMethod method){
 	NSURLRequest *request = [self pkt_URLRequest];
 	connection = [[NSURLConnection alloc] initWithRequest:request delegate:self startImmediately:NO];
 	[connection scheduleInRunLoop:[NSRunLoop mainRunLoop] forMode:NSRunLoopCommonModes];
-
+	
 	[connection start];
 }
 
@@ -100,21 +100,21 @@ NSString *PocketAPINameForHTTPMethod(PocketAPIHTTPMethod method){
 -(void)dealloc{
 	[API release], API = nil;
 	delegate = nil;
-
+	
 	[APIMethod release], APIMethod = nil;
 	[arguments release], arguments = nil;
-
+	
 	[connection release], connection = nil;
 	[response release], response = nil;
 	[data release], data = nil;
 
 	[error release], error = nil;
-
+	
 	[super dealloc];
 }
 
 -(NSString *)description{
-	return [NSString stringWithFormat:@"<%@: %p https://%@/%@ %@>", [self class], self, self.baseURLPath, self.APIMethod, self.arguments];
+	return [NSString stringWithFormat:@"<%@: %p https://%@%@ %@>", [self class], self, self.baseURLPath, self.APIMethod, self.arguments];
 }
 
 -(NSString *)baseURLPath{
@@ -152,8 +152,8 @@ NSString *PocketAPINameForHTTPMethod(PocketAPIHTTPMethod method){
 		[connection cancel];
 		NSString *xError = [[response allHeaderFields] objectForKey:@"X-Error"];
 		NSDictionary *userInfo = xError ? [NSDictionary dictionaryWithObjectsAndKeys:xError,NSLocalizedDescriptionKey,nil] : nil;
-		[self connection:connection didFailWithError:[NSError errorWithDomain:@"PocketSDK"
-																		 code:[response statusCode]
+		[self connection:connection didFailWithError:[NSError errorWithDomain:@"PocketSDK" 
+																		 code:[response statusCode] 
 																	 userInfo:userInfo]];
 	}
 }
@@ -201,13 +201,13 @@ NSString *PocketAPINameForHTTPMethod(PocketAPIHTTPMethod method){
 	}else if(needsToLogout){
 		pocketError = [NSError errorWithDomain:(NSString *)PocketAPIErrorDomain code:statusCode userInfo:nil];
 	}
-
+	
 	error = [pocketError retain];
-
+	
 	if(self.delegate && [self.delegate respondsToSelector:@selector(pocketAPI:receivedResponse:forAPIMethod:error:)]){
 		[self.delegate pocketAPI:self.API receivedResponse:[self responseDictionary] forAPIMethod:self.APIMethod error:theError];
 	}
-
+	
 	// if the user has deauthorized the app, we bounce them to the Pocket to re-login
 	// if this succeeds, we re-call the API the app requested
 	// if it fails, then prompt for an error next time
@@ -216,11 +216,11 @@ NSString *PocketAPINameForHTTPMethod(PocketAPIHTTPMethod method){
 		attemptedRelogin = YES;
 		return;
 	}
-
+	
 	if(needsToLogout){
 		[self.API logout];
 	}
-
+	
 	if(error){
 		if([self.APIMethod rangeOfString:@"auth"].location != NSNotFound || [self.APIMethod isEqualToString:@"request"]){
 			if(self.delegate && [self.delegate respondsToSelector:@selector(pocketAPI:hadLoginError:)]){
@@ -236,7 +236,7 @@ NSString *PocketAPINameForHTTPMethod(PocketAPIHTTPMethod method){
 	}else{
 		if([self.APIMethod isEqualToString:@"auth"]){
 			[self.API pkt_loggedInWithUsername:[self.arguments objectForKey:@"username"] token:[self.arguments objectForKey:@"token"]];
-
+			
 			if(self.delegate && [self.delegate respondsToSelector:@selector(pocketAPILoggedIn:)]){
 				[self.delegate pocketAPILoggedIn:self.API];
 			}
@@ -259,9 +259,9 @@ NSString *PocketAPINameForHTTPMethod(PocketAPIHTTPMethod method){
 			if((!username || username == (id)[NSNull null]) && [[[self arguments] objectForKey:@"grant_type"] isEqualToString:@"credentials"]){
 				username = [[self arguments] objectForKey:@"username"];
 			}
-
+			
 			NSString *token = [responseDict objectForKey:@"access_token"];
-
+			
 			if((id)username == [NSNull null] && (id)token == [NSNull null]){
 				[self.delegate pocketAPI:self.API hadLoginError:[NSError errorWithDomain:@"PocketAPI" code:404 userInfo:nil]];
 			}else{
@@ -279,10 +279,6 @@ NSString *PocketAPINameForHTTPMethod(PocketAPIHTTPMethod method){
 
 -(void)pocketAPILoggedIn:(PocketAPI *)api{
 	[[self.API operationQueue] addOperation:[[self copy] autorelease]];
-
-    // Copy of the current operation is scheduled on the operationQueue, so we have to
-    // mark the current operation as finished to let it be removed from the operationQueue.
-    [self pkt_connectionFinishedLoading];
 }
 
 -(void)pocketAPI:(PocketAPI *)api hadLoginError:(NSError *)theError{
@@ -301,33 +297,33 @@ NSString *PocketAPINameForHTTPMethod(PocketAPIHTTPMethod method){
 	if(accessToken){
 		[dict setObject:accessToken forKey:@"access_token"];
 	}
-
+	
 	return dict;
 }
 
 -(NSMutableURLRequest *)pkt_URLRequest{
 	NSString *urlString = [NSString stringWithFormat:@"https://%@/%@", self.baseURLPath, self.APIMethod];
-
+	
 	NSDictionary *requestArgs = [self pkt_requestArguments];
 
 	if(self.HTTPMethod == PocketAPIHTTPMethodGET && requestArgs.count > 0){
 		NSMutableArray *pairs = [NSMutableArray array];
-
+		
 		for(NSString *key in [requestArgs allKeys]){
 			[pairs addObject:[NSString stringWithFormat:@"%@=%@",key, [PocketAPIOperation encodeForURL:[requestArgs objectForKey:key]]]];
 		}
-
+		
 		if(pairs.count > 0){
 			urlString = [urlString stringByAppendingFormat:@"?%@", [pairs componentsJoinedByString:@"&"]];
 		}
 	}
-
+	
 	NSURL *url = [NSURL URLWithString:urlString];
 	NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
 	[request setHTTPMethod:PocketAPINameForHTTPMethod(self.HTTPMethod)];
 	[request setTimeoutInterval:20.];
 	[request setCachePolicy:NSURLRequestReloadIgnoringLocalAndRemoteCacheData];
-
+	
 	Class nsJSONSerialization = NSClassFromString(@"NSJSONSerialization");
 
 	if(self.HTTPMethod != PocketAPIHTTPMethodGET && requestArgs.count > 0){
@@ -339,18 +335,18 @@ NSString *PocketAPINameForHTTPMethod(PocketAPIHTTPMethod method){
 			[request setHTTPBody:[[requestArgs pkt_URLEncodedFormString] dataUsingEncoding:NSUTF8StringEncoding]];
 		}
 	}
-
+	
 	NSString *userAgent = [self.API pkt_userAgent];
 	if(userAgent){
 		[request addValue:userAgent forHTTPHeaderField:@"User-Agent"];
 	}
-
+	
 	if(nsJSONSerialization != nil){
 		[request addValue:@"application/json" forHTTPHeaderField:@"X-Accept"];
 	}else{
 		[request addValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"X-Accept"];
 	}
-
+	
 	return [request autorelease];
 }
 
@@ -408,14 +404,7 @@ NSString *PocketAPINameForHTTPMethod(PocketAPIHTTPMethod method){
 -(NSString *)pkt_URLEncodedFormString{
 	NSMutableArray *formPieces = [NSMutableArray arrayWithCapacity:self.allKeys.count];
 	for(NSString *key in self.allKeys){
-        NSString *value = [self objectForKey:key];
-        if(![value isKindOfClass:[NSString class]]){
-            if([value respondsToSelector:@selector(stringValue)]){
-                value = [(id)value stringValue];
-            }else{
-                value = [value description];
-            }
-        }
+		NSString *value = [self objectForKey:key];
 		[formPieces addObject:[NSString stringWithFormat:@"%@=%@", [PocketAPIOperation encodeForURL:key], [PocketAPIOperation encodeForURL:value]]];
 	}
 	return [formPieces componentsJoinedByString:@"&"];

@@ -60,7 +60,7 @@ typedef enum {
 	PocketAPIErrorConsumerKeyAccessTokenMismatch = 137,
 	PocketAPIErrorEndpointForbidden = 150,
 	PocketAPIErrorEndpointRequiresAdditionalPermissions = 151,
-
+	
 	// Signup Errors
 	PocketAPIErrorSignupInvalidUsernameAndPassword  = 100,
 	PocketAPIErrorSignupInvalidUsername = 101,
