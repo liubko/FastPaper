@@ -35,7 +35,7 @@ var LoginPage = React.createClass({
     **/
     setTimeout(() => {
       this.refs.loader.hide();
-    }, 1000);
+    }, 3000);
 
 
     this.getFlux().actions.user
