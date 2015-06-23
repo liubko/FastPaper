@@ -25,7 +25,7 @@ var LoginPage = React.createClass({
   ],
 
   _handleLoginWithPocket() {
-    this.refs.loader.show();
+    this._showLoader();
     /**
 
       TODO:
@@ -34,14 +34,15 @@ var LoginPage = React.createClass({
 
     **/
     setTimeout(() => {
-      this.refs.loader.hide();
+      this._hideLoader();
     }, 3000);
 
 
     this.getFlux().actions.user
       .login()
       .done(data => {
-        this.refs.loader.hide();
+        this._hideLoader();
+
         if (data.isLoggedIn) {
           this.props.navigator.resetTo({
             title: "Articles Page",
@@ -52,9 +53,21 @@ var LoginPage = React.createClass({
           });
         }
       }, err => {
-        this.refs.loader.hide();
+        this._hideLoader();
         console.log("[Error in LoginPage._handleLoginWithPocket]:", err);
       });
+  },
+
+  _hideLoader() {
+    if (this.refs && this.refs.loader) {
+      this.refs.loader.hide();
+    }
+  },
+
+  _showLoader() {
+    if (this.refs && this.refs.loader) {
+      this.refs.loader.show();
+    }
   },
 
   componentWillMount() {

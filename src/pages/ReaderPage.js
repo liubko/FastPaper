@@ -77,7 +77,9 @@ var ReaderPage = React.createClass({
 
   componentDidUpdate() {
     if (this.state.isTextReady) {
-      this.refs.loader.hide();
+      if (this.refs && this.refs.loader) {
+        this.refs.loader.hide();
+      }
     }
   },
 
