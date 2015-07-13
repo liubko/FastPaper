@@ -115,7 +115,8 @@ var ArticlesPage = React.createClass({
                                refreshDescription="Refreshing articles"
                                renderRow={a => {
                                 return (
-                                   <ArticleItem ref={ row => this.rows["article_" + a.item_id]= row }
+                                   <ArticleItem ref={ row => this.rows[`article_${a.item_id}`]= row }
+                                                key={`article_${a.item_id}`}
                                                 article={a}
                                                 onStartSwipe={this._handleStartSwipe.bind(this, a)}
                                                 onSelect={this._handleSelectArticle.bind(this, a)} />
