@@ -6,10 +6,10 @@ var {
   View,
   TouchableWithoutFeedback,
   PanResponder,
-  StatusBarIOS
+  StatusBarIOS,
+  Animated,
 } = React;
 
-// var AnimationExperimental = require('AnimationExperimental');
 var Fluxxor = require("fluxxor");
 var { Icon } = require("react-native-icons");
 var deviceScreen = require('Dimensions').get('window');
@@ -30,6 +30,12 @@ var ReaderPage = React.createClass({
     Fluxxor.FluxMixin(React),
     Fluxxor.StoreWatchMixin("text", "settings"),
   ],
+
+  getInitialState() {
+    return {
+      playButtonOpacityValue: new Animated.Value(1),
+    };
+  },
 
   getStateFromFlux() {
     return {
@@ -93,13 +99,14 @@ var ReaderPage = React.createClass({
     StatusBarIOS.setHidden(true, "fade");
     this.refs.header.hide();
 
-    // AnimationExperimental.startAnimation({
-    //   node: this.refs.playButton,
-    //   duration: 200,
-    //   easing: 'easeInQuad',
-    //   property: 'opacity',
-    //   toValue: 0,
-    // });
+    this.state.playButtonOpacityValue.setValue(1);
+    Animated.timing(
+      this.state.playButtonOpacityValue,
+      {
+        toValue: 0,
+        duration: 150
+      }
+    ).start();  // Start the animation
   },
 
   _handlePause() {
@@ -107,13 +114,14 @@ var ReaderPage = React.createClass({
     this.refs.header.show();
     StatusBarIOS.setHidden(false, "fade");
 
-    // AnimationExperimental.startAnimation({
-    //   node: this.refs.playButton,
-    //   duration: 200,
-    //   easing: 'easeInQuad',
-    //   property: 'opacity',
-    //   toValue: 1
-    // });
+    this.state.playButtonOpacityValue.setValue(0);
+    Animated.timing(
+      this.state.playButtonOpacityValue,
+      {
+        toValue: 1,
+        duration: 150
+      }
+    ).start();  // Start the animation
   },
 
   _handleList() {
@@ -165,13 +173,21 @@ var ReaderPage = React.createClass({
             </View>
           </View>
           <TouchableWithoutFeedback onPress={this._handlePlay} >
-            <View ref="playButton"
-                  style={[styles.buttonPlay]}>
+          <Animated.View ref="playButton"
+            style={[ styles.buttonPlay,
+              {
+                flex: 1,
+                opacity: this.state.playButtonOpacityValue
+                /*transform: [{
+                  scale: this.state.playButtonOpacityValue
+                }]*/
+              }
+            ]}>
               <Icon name="ion|play"
                     size={28}
                     color='#fff'
                     style={styles.iconPlay} />
-            </View>
+            </Animated.View>
           </TouchableWithoutFeedback>
 
           <Loader ref="loader" spinnerStyle={{marginBottom: 40}}/>

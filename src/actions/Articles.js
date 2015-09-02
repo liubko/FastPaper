@@ -5,7 +5,8 @@ var api = require("../api/");
 var Q = require("q");
 
 var {
-  AlertIOS
+  AlertIOS,
+  StatusBarIOS,
 } = require("react-native");
 
 module.exports = {
@@ -22,6 +23,7 @@ module.exports = {
       return Q.reject();
     }
 
+    StatusBarIOS.setNetworkActivityIndicatorVisible(true);
     var since = this.flux.stores.articles.getSince();
     return api.pocket.fetch(since)
       .then(data => {
@@ -30,6 +32,10 @@ module.exports = {
           since: data.since,
           isItAllArticles: !since
         });
+        console.log("data:", data);
+
+        StatusBarIOS.setNetworkActivityIndicatorVisible(false);
+
         return data;
       })
       .catch(err => {
@@ -38,6 +44,8 @@ module.exports = {
           request: "Fetch articles",
           err: (err && err.response) ? JSON.parse(err.response.text || {}) : err
         });
+
+        StatusBarIOS.setNetworkActivityIndicatorVisible(false);
 
         return Q.reject(err);
       });
@@ -118,6 +126,9 @@ module.exports = {
       if (event) {
         this.dispatch(event, id);
       }
+
+      StatusBarIOS.setNetworkActivityIndicatorVisible(true);
+
       this.dispatch(EC.UI.DELAY_ACTION, {
         id: id,
         action: action
@@ -132,6 +143,8 @@ module.exports = {
         action: action
       }])
       .then(data => {
+        StatusBarIOS.setNetworkActivityIndicatorVisible(false);
+
         if (event) {
           this.dispatch(event, id);
         }

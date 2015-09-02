@@ -5,7 +5,8 @@ var api = require("../api/");
 var Q = require("q");
 
 var {
-  AlertIOS
+  AlertIOS,
+  StatusBarIOS
 } = require("react-native");
 
 module.exports = {
@@ -28,6 +29,7 @@ module.exports = {
       return Q.reject();
     }
 
+    StatusBarIOS.setNetworkActivityIndicatorVisible(true);
     var article = this.flux.stores.articles.getArticle(id);
     return api.readability.fetchText(article.resolved_url)
       .then(data => {
@@ -38,9 +40,13 @@ module.exports = {
         });
         this.dispatch(EC.UI.SELECT_TEXT, text);
 
+        StatusBarIOS.setNetworkActivityIndicatorVisible(false);
+
         return text;
       })
       .catch(err => {
+        StatusBarIOS.setNetworkActivityIndicatorVisible(false);
+
         AlertIOS.alert(
           "Error",
           "Can't fetch article text. Please try again.",

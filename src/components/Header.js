@@ -5,10 +5,10 @@ var {
   StyleSheet,
   View,
   TouchableWithoutFeedback,
-  TouchableOpacity
+  TouchableOpacity,
+  Animated,
 } = React;
 
-// var AnimationExperimental = require('AnimationExperimental');
 var MyText = require("./MyText.js");
 var Fluxxor = require("fluxxor");
 var { Icon } = require("react-native-icons");
@@ -26,8 +26,9 @@ var Header = React.createClass({
     Fluxxor.FluxMixin(React)
   ],
 
-  getInitialState: function() {
+  getInitialState() {
     return {
+      headerOpacityValue: new Animated.Value(1),
       isHidden: false
     };
   },
@@ -43,31 +44,40 @@ var Header = React.createClass({
     }
   },
 
-  hide(){
-    // AnimationExperimental.startAnimation({
-    //   node: this.refs.root,
-    //   duration: 200,
-    //   easing: 'easeIn',
-    //   property: 'opacity',
-    //   toValue: 0,
-    // });
+  show(){
+    this.state.headerOpacityValue.setValue(0);
+    Animated.timing(
+      this.state.headerOpacityValue,
+      {
+        toValue: 1,
+        duration: 150
+      }
+    ).start();  // Start the animation
   },
 
-  show(){
-    // AnimationExperimental.startAnimation({
-    //   node: this.refs.root,
-    //   duration: 200,
-    //   easing: 'easeIn',
-    //   property: 'opacity',
-    //   toValue: 1,
-    // });
+  hide(){
+    this.state.headerOpacityValue.setValue(1);
+    Animated.timing(
+      this.state.headerOpacityValue,
+      {
+        toValue: 0,
+        duration: 150
+      }
+    ).start();  // Start the animation
   },
 
   /*==========  render  ==========*/
   render() {
     return (
-      <View ref="root"
-            style={[styles.container]}>
+      <Animated.View ref="playButton"
+        style={[ styles.container,
+          {
+            opacity: this.state.headerOpacityValue
+            /*transform: [{
+              scale: this.state.headerOpacityValue
+            }]*/
+          }
+        ]}>
         {this.props.showBackButton
           ? (<TouchableOpacity onPress={this._handleBack}>
               <Icon name="ion|ios-arrow-back"
@@ -88,7 +98,7 @@ var Header = React.createClass({
               {this.props.rightButton}
             </TouchableWithoutFeedback>)
           : <View style={styles.button} />}
-      </View>
+      </Animated.View>
     );
   }
 });
