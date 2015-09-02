@@ -8,7 +8,7 @@ var React = require("react-native");
 var Fluxxor = require("fluxxor");
 var window = require("Dimensions").get("window");
 var _ = require("lodash");
-var Icon = require("FAKIconImage");
+var { Icon } = require("react-native-icons");
 
 var {
   AppRegistry,

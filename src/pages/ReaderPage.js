@@ -9,9 +9,9 @@ var {
   StatusBarIOS
 } = React;
 
-var AnimationExperimental = require('AnimationExperimental');
+// var AnimationExperimental = require('AnimationExperimental');
 var Fluxxor = require("fluxxor");
-var Icon = require("FAKIconImage");
+var { Icon } = require("react-native-icons");
 var deviceScreen = require('Dimensions').get('window');
 
 var MyText = require("../components/MyText.js");
@@ -93,13 +93,13 @@ var ReaderPage = React.createClass({
     StatusBarIOS.setHidden(true, "fade");
     this.refs.header.hide();
 
-    AnimationExperimental.startAnimation({
-      node: this.refs.playButton,
-      duration: 200,
-      easing: 'easeInQuad',
-      property: 'opacity',
-      toValue: 0,
-    });
+    // AnimationExperimental.startAnimation({
+    //   node: this.refs.playButton,
+    //   duration: 200,
+    //   easing: 'easeInQuad',
+    //   property: 'opacity',
+    //   toValue: 0,
+    // });
   },
 
   _handlePause() {
@@ -107,13 +107,13 @@ var ReaderPage = React.createClass({
     this.refs.header.show();
     StatusBarIOS.setHidden(false, "fade");
 
-    AnimationExperimental.startAnimation({
-      node: this.refs.playButton,
-      duration: 200,
-      easing: 'easeInQuad',
-      property: 'opacity',
-      toValue: 1
-    });
+    // AnimationExperimental.startAnimation({
+    //   node: this.refs.playButton,
+    //   duration: 200,
+    //   easing: 'easeInQuad',
+    //   property: 'opacity',
+    //   toValue: 1
+    // });
   },
 
   _handleList() {
@@ -164,7 +164,6 @@ var ReaderPage = React.createClass({
                     </MyText> }
             </View>
           </View>
-
           <TouchableWithoutFeedback onPress={this._handlePlay} >
             <View ref="playButton"
                   style={[styles.buttonPlay]}>

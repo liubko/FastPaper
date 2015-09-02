@@ -8,10 +8,10 @@ var {
   TouchableOpacity
 } = React;
 
-var AnimationExperimental = require('AnimationExperimental');
+// var AnimationExperimental = require('AnimationExperimental');
 var MyText = require("./MyText.js");
 var Fluxxor = require("fluxxor");
-var Icon = require("FAKIconImage");
+var { Icon } = require("react-native-icons");
 
 var Header = React.createClass({
   propTypes: {
@@ -44,23 +44,23 @@ var Header = React.createClass({
   },
 
   hide(){
-    AnimationExperimental.startAnimation({
-      node: this.refs.root,
-      duration: 200,
-      easing: 'easeIn',
-      property: 'opacity',
-      toValue: 0,
-    });
+    // AnimationExperimental.startAnimation({
+    //   node: this.refs.root,
+    //   duration: 200,
+    //   easing: 'easeIn',
+    //   property: 'opacity',
+    //   toValue: 0,
+    // });
   },
 
   show(){
-    AnimationExperimental.startAnimation({
-      node: this.refs.root,
-      duration: 200,
-      easing: 'easeIn',
-      property: 'opacity',
-      toValue: 1,
-    });
+    // AnimationExperimental.startAnimation({
+    //   node: this.refs.root,
+    //   duration: 200,
+    //   easing: 'easeIn',
+    //   property: 'opacity',
+    //   toValue: 1,
+    // });
   },
 
   /*==========  render  ==========*/

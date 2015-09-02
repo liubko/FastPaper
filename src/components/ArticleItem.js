@@ -11,11 +11,11 @@ var {
   AlertIOS
 } = React;
 
-var Swiper = require("react-native-swiper")
+var Swiper = require('react-native-swiper');
 var MyText = require("./MyText.js");
-var parse = require("url-parse")
+var parse = require("url-parse");
 var Fluxxor = require("fluxxor");
-var Icon = require("FAKIconImage");
+var { Icon } = require("react-native-icons");
 
 var ArticleItem = React.createClass({
   propTypes: {
@@ -78,18 +78,18 @@ var ArticleItem = React.createClass({
               style={styles.container}
               height={HEIGHT}
               showsPagination={false}
-              onTouchStart={this.props.onStartSwipe.bind(this, this.props.article.item_id)}
+              // onTouchStart={this.props.onStartSwipe.bind(this, this.props.article.item_id)}
               loop={false}
               index={0}>
         <TouchableOpacity activeOpacity={0.5}
                           onPress={this._handleSelectArticle}>
           <View style={styles.swipeInfoPart}>
             <View style={styles.columnStar}>
-              { article.favorite === "1"
-                  && <Icon name="ion|android-star"
-                           size={18}
-                           color="#fc8"
-                           style={styles.starIcon} /> }
+              {article.favorite === "1"
+                && <Icon name="ion|android-star"
+                         size={18}
+                         color="#fc8"
+                         style={styles.starIcon} /> }
             </View>
 
             <View style={styles.columnInfo}>
@@ -114,23 +114,23 @@ var ArticleItem = React.createClass({
         <View style={styles.swipeActionsPart}>
           <TouchableOpacity onPress={this._handleArchive}>
             <Icon name="ion|checkmark-round"
-                  size={32}
-                  color="#000"
-                  style={styles.icon} />
+                   size={32}
+                   color="#666"
+                   style={styles.icon} />
           </TouchableOpacity>
 
           <TouchableOpacity onPress={this._handleFavorite}>
             <Icon name="ion|android-star"
-                  size={32}
-                  color={article.favorite === "1" ? "#fc8" : "#000"}
-                  style={styles.icon} />
+                   size={32}
+                   color={article.favorite === "1" ? "#fc8" : "#666"}
+                   style={styles.icon} />
           </TouchableOpacity>
 
           <TouchableOpacity onPress={this._handleDelete}>
             <Icon name="ion|trash-b"
-                  size={32}
-                  color="#000"
-                  style={styles.icon} />
+                   size={32}
+                   color="#666"
+                   style={styles.icon} />
           </TouchableOpacity>
         </View>
       </Swiper>
@@ -186,14 +186,14 @@ var styles = StyleSheet.create({
   },
   swipeActionsPart: {
     height: HEIGHT,
-    justifyContent: "center",
+    justifyContent: "space-around",
     alignItems: "center",
     flexDirection: "row",
-    backgroundColor: "#f8f8f8"
+    backgroundColor: "#f8f8f8",
   },
   icon: {
     height: 30,
-    flex: 1,
+    width: 30,
   }
 });
 

@@ -5,7 +5,7 @@ var {
   StyleSheet,
   TouchableOpacity
 } = React;
-var Icon = require("FAKIconImage");
+var { Icon } = require("react-native-icons");
 
 var SettingsButton = React.createClass({
   propTypes: {
