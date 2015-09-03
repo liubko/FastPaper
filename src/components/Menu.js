@@ -16,7 +16,8 @@ var {
   View,
   Image,
   TouchableOpacity,
-  SliderIOS
+  SliderIOS,
+  AlertIOS
 } = React;
 
 var MyText = require("./MyText.js");
@@ -65,25 +66,34 @@ var Menu = React.createClass({
   },
 
   _handleLogout() {
-    this.getFlux().actions.user
-      .logout()
-      .finally(() => {
-        this.props.getNavigator()
-          .resetTo({
-            title: "Login Page",
-            component: LoginPage,
-            passProps: {
-              toggleSidebar: this.props.menuActions.toggle
-            }
-          });
+    AlertIOS.alert(
+      'Are you sure?',
+      'You will be logged out of your account and any files that have been saved for offline viewing will be deleted.',
+      [
+        {text: 'Cancel'},
+        {text: 'Log Out', onPress: () => {
+          this.getFlux().actions.user
+            .logout()
+            .finally(() => {
+              this.props.getNavigator()
+                .resetTo({
+                  title: "Login Page",
+                  component: LoginPage,
+                  passProps: {
+                    toggleSidebar: this.props.menuActions.toggle
+                  }
+                });
 
-        setTimeout(() => {
-          this.props.menuActions.close();
-        }, 1);
-      })
-      .done(undefined, err => {
-        console.log("[Error in Menu._handleLogout]:", err);
-      });
+              setTimeout(() => {
+                this.props.menuActions.close();
+              }, 1);
+            })
+            .done(undefined, err => {
+              console.log("[Error in Menu._handleLogout]:", err);
+            });
+        }},
+      ]
+    );
   },
 
   shouldComponentUpdate(nextProps, nextState) {

@@ -62,8 +62,7 @@ var ArticleItem = React.createClass({
           this.getFlux().actions.articles.delete(this.props.article.item_id);
         }},
       ]
-    )
-
+    );
   },
 
   /*==========  render  ==========*/
