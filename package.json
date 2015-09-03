@@ -6,20 +6,20 @@
     "start": "node_modules/react-native/packager/packager.sh"
   },
   "dependencies": {
-    "buffer": "*",
-    "fluxxor": "*",
-    "js-base64": "*",
-    "lodash": "*",
-    "moment": "*",
-    "pubsub-js": "*",
+    "buffer": "^3.4.3",
+    "fluxxor": "^1.7.1",
+    "js-base64": "^2.1.9",
+    "lodash": "^3.10.1",
+    "moment": "^2.10.6",
+    "pubsub-js": "^1.5.2",
     "q": "^2.0.3",
-    "react-native": "*",
+    "react-native": "^0.10.1",
     "react-native-icons": "^0.3.6",
     "react-native-refreshable-listview": "*",
     "react-native-swiper": "^1.3.0",
     "react-timer-mixin": "^0.13.2",
-    "string": "*",
-    "superagent": "*",
-    "url-parse": "*"
+    "string": "^3.3.1",
+    "superagent": "^1.3.0",
+    "url-parse": "^1.0.2"
   }
 }
