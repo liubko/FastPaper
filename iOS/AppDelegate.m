@@ -9,7 +9,7 @@
 
 #import "AppDelegate.h"
 
-#import "RCTRootView.h"
+#import "Base/RCTRootView.h"
 
 #import "Config.h"
 #import "../PocketSDK/PocketAPI.h"

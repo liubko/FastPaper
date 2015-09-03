@@ -1,4 +1,4 @@
-#import "RCTBridgeModule.h"
+#import "Base/RCTBridgeModule.h"
 
 @interface RCTMixpanel : NSObject <RCTBridgeModule>
 @end

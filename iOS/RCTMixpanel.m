@@ -1,7 +1,7 @@
 // CalendarManager.m
 
 #import "RCTMixpanel.h"
-#import "RCTBridge.h"
+#import "Base/RCTBridge.h"
 
 #import "Mixpanel.h"
 

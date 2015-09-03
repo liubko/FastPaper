@@ -1,5 +1,5 @@
 #import "RCTConfig.h"
-#import "RCTBridge.h"
+#import "Base/RCTBridge.h"
 
 #import "Config.h"
 
